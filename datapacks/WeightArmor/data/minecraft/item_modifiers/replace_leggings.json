@@ -26,7 +26,7 @@
       {
         "attribute": "minecraft:generic.movement_speed",
         "name": "generic.movement_speed",
-        "amount": -0.04,
+        "amount": 0.01,
         "operation": "multiply_base",
         "slot": "legs"
       }
@@ -67,7 +67,7 @@
       {
         "attribute": "minecraft:generic.movement_speed",
         "name": "generic.movement_speed",
-        "amount": -0.04,
+        "amount": 0.01,
         "operation": "multiply_base",
         "slot": "legs"
       }
