@@ -1,0 +1,17 @@
+execute as @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman", level:3}},limit=1,sort=nearest] run data remove entity @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman", level:3}},limit=1,sort=nearest] Offers.Recipes[-1]
+execute as @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman", level:3}},limit=1,sort=nearest] run data remove entity @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman", level:3}},limit=1,sort=nearest] Offers.Recipes[-1]
+
+execute as @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman", level:3}},limit=1,sort=nearest] store result score @s RNG1 run loot spawn ~ -2 ~ loot cv:2
+
+execute if score @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman", level:3}},limit=1,sort=nearest] RNG1 matches 1 run data modify entity @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman", level:3}},limit=1,sort=nearest] Offers.Recipes append value {buyB:{id:"minecraft:air",Count:1},buy:{id:"minecraft:emerald",Count:1},sell:{id:"minecraft:cooked_salmon",Count:8},xp:7,rewardExp:1b,maxUses:12}
+
+execute if score @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman", level:3}},limit=1,sort=nearest] RNG1 matches 2 run data modify entity @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman", level:3}},limit=1,sort=nearest] Offers.Recipes append value {buyB:{id:"minecraft:air",Count:1},buy:{id:"minecraft:emerald",Count:1},sell:{id:"minecraft:cooked_salmon",Count:7},xp:7,rewardExp:1b,maxUses:12}
+
+execute as @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman",level:3}},limit=1,sort=nearest] store result score @s RNG2 run loot spawn ~ -2 ~ loot cv:2
+
+execute if score @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman", level:3}},limit=1,sort=nearest] RNG2 matches 1 run data modify entity @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman", level:3}},limit=1,sort=nearest] Offers.Recipes append value {buyB:{id:"minecraft:air",Count:1},buy:{id:"minecraft:emerald",Count:1},sell:{id:"minecraft:cooked_cod",Count:9},xp:7,rewardExp:1b,maxUses:12}
+
+execute if score @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman", level:3}},limit=1,sort=nearest] RNG2 matches 2 run data modify entity @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman", level:3}},limit=1,sort=nearest] Offers.Recipes append value {buyB:{id:"minecraft:air",Count:1},buy:{id:"minecraft:emerald",Count:1},sell:{id:"minecraft:cooked_cod",Count:13},xp:7,rewardExp:1b,maxUses:12}
+
+execute as @e[type=minecraft:villager,tag=check2,tag=!check3,nbt={VillagerData:{profession:"minecraft:fisherman", level:3}},limit=1,sort=nearest] run tag @s add check3
+execute as @s run function cv:removescores

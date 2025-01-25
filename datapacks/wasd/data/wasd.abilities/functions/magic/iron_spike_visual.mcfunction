@@ -1,0 +1,3 @@
+#built using mc-build (https://github.com/mc-build/mc-build)
+
+execute at @e[type=marker,tag=wasd.iron_spike] if score @e[type=marker,tag=wasd.iron_spike,sort=nearest,limit=1] wasd.uuid1 = @s wasd.uuid1 if score @e[type=marker,tag=wasd.iron_spike,sort=nearest,limit=1] wasd.uuid2 = @s wasd.uuid2 if score @e[type=marker,tag=wasd.iron_spike,sort=nearest,limit=1] wasd.uuid3 = @s wasd.uuid3 if score @e[type=marker,tag=wasd.iron_spike,sort=nearest,limit=1] wasd.uuid4 = @s wasd.uuid4 run function wasd.abilities:magic/__generated__/block/98

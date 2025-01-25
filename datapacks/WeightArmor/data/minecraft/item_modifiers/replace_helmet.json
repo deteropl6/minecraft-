@@ -1,0 +1,299 @@
+[
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "name": "generic.armor",
+        "amount": 3,
+        "operation": "addition",
+        "slot": "head"
+      },
+      {
+        "attribute": "minecraft:generic.armor_toughness",
+        "name": "generic.armor_toughness",
+        "amount": 3,
+        "operation": "addition",
+        "slot": "head"
+      },
+      {
+        "attribute": "minecraft:generic.knockback_resistance",
+        "name": "generic.knockback_resistance",
+        "amount": 0.1,
+        "operation": "addition",
+        "slot": "head"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "name": "generic.movement_speed",
+        "amount": -0.04,
+        "operation": "multiply_base",
+        "slot": "head"
+      }
+    ],
+    "conditions": [
+      {
+        "condition": "minecraft:entity_properties",
+        "entity": "this",
+        "predicate": {
+          "equipment": {
+            "head": {
+              "items": [
+                "minecraft:netherite_helmet"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "name": "generic.armor",
+        "amount": 3,
+        "operation": "addition",
+        "slot": "head"
+      },
+      {
+        "attribute": "minecraft:generic.armor_toughness",
+        "name": "generic.armor_toughness",
+        "amount": 2,
+        "operation": "addition",
+        "slot": "head"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "name": "generic.movement_speed",
+        "amount": -0.04,
+        "operation": "multiply_base",
+        "slot": "head"
+      }
+    ],
+    "conditions": [
+      {
+        "condition": "minecraft:entity_properties",
+        "entity": "this",
+        "predicate": {
+          "equipment": {
+            "head": {
+              "items": [
+                "minecraft:diamond_helmet"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "name": "generic.armor",
+        "amount": 2,
+        "operation": "addition",
+        "slot": "head"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "name": "generic.movement_speed",
+        "amount": -0.03,
+        "operation": "multiply_base",
+        "slot": "head"
+      }
+    ],
+    "conditions": [
+      {
+        "condition": "minecraft:entity_properties",
+        "entity": "this",
+        "predicate": {
+          "equipment": {
+            "head": {
+              "items": [
+                "minecraft:iron_helmet"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "name": "generic.armor",
+        "amount": 2,
+        "operation": "addition",
+        "slot": "head"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "name": "generic.movement_speed",
+        "amount": -0.02,
+        "operation": "multiply_base",
+        "slot": "head"
+      }
+    ],
+    "conditions": [
+      {
+        "condition": "minecraft:entity_properties",
+        "entity": "this",
+        "predicate": {
+          "equipment": {
+            "head": {
+              "items": [
+                "minecraft:golden_helmet"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "name": "generic.armor",
+        "amount": 2,
+        "operation": "addition",
+        "slot": "head"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "name": "generic.movement_speed",
+        "amount": 0.0125,
+        "operation": "multiply_base",
+        "slot": "head"
+      }
+    ],
+    "conditions": [
+      {
+        "condition": "minecraft:entity_properties",
+        "entity": "this",
+        "predicate": {
+          "equipment": {
+            "head": {
+              "items": [
+                "minecraft:chainmail_helmet"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "name": "generic.armor",
+        "amount": 1,
+        "operation": "addition",
+        "slot": "head"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "name": "generic.movement_speed",
+        "amount": 0.025,
+        "operation": "multiply_base",
+        "slot": "head"
+      }
+    ],
+    "conditions": [
+      {
+        "condition": "minecraft:entity_properties",
+        "entity": "this",
+        "predicate": {
+          "equipment": {
+            "head": {
+              "items": [
+                "minecraft:leather_helmet"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "name": "generic.armor",
+        "amount": 2,
+        "operation": "addition",
+        "slot": "head"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "name": "generic.movement_speed",
+        "amount": -0,
+        "operation": "multiply_base",
+        "slot": "head"
+      }
+    ],
+    "conditions": [
+      {
+        "condition": "minecraft:entity_properties",
+        "entity": "this",
+        "predicate": {
+          "equipment": {
+            "head": {
+              "items": [
+                "minecraft:turtle_helmet"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "name": "generic.armor",
+        "amount": 1,
+        "operation": "addition",
+        "slot": "head"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "name": "generic.movement_speed",
+        "amount": -0.04,
+        "operation": "multiply_base",
+        "slot": "head"
+      }
+    ],
+    "conditions": [
+      {
+        "condition": "minecraft:entity_properties",
+        "entity": "this",
+        "predicate": {
+          "equipment": {
+            "head": {
+              "items": [
+                "minecraft:carved_pumpkin"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_nbt",
+    "tag": "{realistic:1}"
+  }
+]

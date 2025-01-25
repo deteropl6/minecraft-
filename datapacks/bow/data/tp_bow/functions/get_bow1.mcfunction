@@ -1,0 +1,1 @@
+give @p bow{ender_warp:1,display:{Lore:['{"text":"Ender Warp","italic":false,"color":"gray"}']},Enchantments:[{id:ender_warp,lvl:1}]}

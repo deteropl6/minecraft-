@@ -1,0 +1,13 @@
+{
+	"criteria": {
+		"placeholder": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "wasd.totems:totem_crafter_z"
+			}
+		}
+	},
+	"rewards": {
+		"function": "wasd.lib:craft/totem_crafter"
+	}
+}

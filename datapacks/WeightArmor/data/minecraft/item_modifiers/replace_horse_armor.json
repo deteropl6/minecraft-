@@ -1,0 +1,129 @@
+[
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "name": "generic.armor",
+        "amount": 12,
+        "operation": "addition",
+        "slot": "chest"
+      },
+      {
+        "attribute": "minecraft:generic.armor_toughness",
+        "name": "generic.armor_toughness",
+        "amount": 2,
+        "operation": "addition",
+        "slot": "chest"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "name": "generic.movement_speed",
+        "amount": -0.2,
+        "operation": "multiply_base",
+        "slot": "chest"
+      }
+    ],
+    "conditions": [
+      {
+        "condition": "minecraft:entity_properties",
+        "entity": "this",
+        "predicate": {
+          "type": "minecraft:horse",
+          "nbt": "{ArmorItems:[{id:\"minecraft:diamond_horse_armor\"}]}"
+        }
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "name": "generic.armor",
+        "amount": 8,
+        "operation": "addition",
+        "slot": "chest"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "name": "generic.movement_speed",
+        "amount": -0.16,
+        "operation": "multiply_base",
+        "slot": "chest"
+      }
+    ],
+    "conditions": [
+      {
+        "condition": "minecraft:entity_properties",
+        "entity": "this",
+        "predicate": {
+          "type": "minecraft:horse",
+          "nbt": "{ArmorItems:[{id:\"minecraft:iron_horse_armor\"}]}"
+        }
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "name": "generic.armor",
+        "amount": 6,
+        "operation": "addition",
+        "slot": "chest"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "name": "generic.movement_speed",
+        "amount": -0.12,
+        "operation": "multiply_base",
+        "slot": "chest"
+      }
+    ],
+    "conditions": [
+      {
+        "condition": "minecraft:entity_properties",
+        "entity": "this",
+        "predicate": {
+          "type": "minecraft:horse",
+          "nbt": "{ArmorItems:[{id:\"minecraft:golden_horse_armor\"}]}"
+        }
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_attributes",
+    "modifiers": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "name": "generic.armor",
+        "amount": 3,
+        "operation": "addition",
+        "slot": "chest"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "name": "generic.movement_speed",
+        "amount": -0.05,
+        "operation": "multiply_base",
+        "slot": "chest"
+      }
+    ],
+    "conditions": [
+      {
+        "condition": "minecraft:entity_properties",
+        "entity": "this",
+        "predicate": {
+          "type": "minecraft:horse",
+          "nbt": "{ArmorItems:[{id:\"minecraft:leather_horse_armor\"}]}"
+        }
+      }
+    ]
+  },
+  {
+    "function": "minecraft:set_nbt",
+    "tag": "{realistic:1}"
+  }
+]

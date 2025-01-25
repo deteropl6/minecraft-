@@ -1,0 +1,1 @@
+{"display":{"title":"Food Status Effects","description":"Adds relevancy and status buffs to obscure foods!","icon":{"item":"minecraft:apple"},"announce_to_chat":false,"show_toast":false},"parent":"global:cchesed","criteria":{"trigger":{"trigger":"minecraft:tick"}}}

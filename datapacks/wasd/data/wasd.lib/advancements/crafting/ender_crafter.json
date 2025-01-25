@@ -1,0 +1,13 @@
+{
+	"criteria": {
+		"placeholder": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "wasd.pearl:ender_crafter"
+			}
+		}
+	},
+	"rewards": {
+		"function": "wasd.lib:craft/ender_crafter"
+	}
+}

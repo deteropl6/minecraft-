@@ -1,0 +1,1 @@
+tellraw @a ["",{"text":"Loading ","color":"gold"},{"text":"GKforce12's ","color":"red"},{"text":"Teleportation Bow","color": "aqua","bold": true, "underlined": false},{"text":" Datapack!","color":"gold"}]

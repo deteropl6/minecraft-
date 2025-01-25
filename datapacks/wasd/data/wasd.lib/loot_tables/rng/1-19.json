@@ -1,0 +1,29 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": 
+			[
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:1b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:2b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:3b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:4b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:5b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:6b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:7b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:8b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:9b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:10b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:11b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:12b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:13b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:14b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:15b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:16b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:17b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:18b}"}]},
+                {"type": "item","weight": 1,"name": "music_disc_13","functions": [{"function": "set_count","count": {"min": 1,"max": 1}},{"function": "set_nbt","tag": "{wasd_rng:19b}"}]}          
+            ]
+        }
+    ]
+}

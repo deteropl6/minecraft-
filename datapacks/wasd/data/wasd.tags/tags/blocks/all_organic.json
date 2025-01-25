@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:leaves",
+    "#minecraft:saplings",
+    "#wasd.tags:all_plants",
+    "#wasd.tags:crops",
+    "minecraft:fern",
+    "minecraft:red_mushroom",
+    "minecraft:bamboo_sapling",
+    "minecraft:bamboo",
+    "minecraft:brown_mushroom",
+    "minecraft:lily_pad",
+    "minecraft:vine",
+    "minecraft:cactus"
+  ]
+}
+
+

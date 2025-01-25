@@ -1,0 +1,18 @@
+Thanks for Downloading.
+
+This video explains everything: https://youtu.be/HD2qoKwyI4g
+
+To install,
+
+1. Place this downloaded folder (the .zip these instructions are contained within) into your world's "datapacks" folder.
+
+2. Download the Required WASD Libraries. Ensure you have the latest version of the pack.
+	http://wasdbuildteam.website/data-packs/wasd-libraries/
+
+3. Follow the instrunctions in the WASD Libraries. Instructions will be different than this pack.
+
+4. Run the command "/reload" to install the data pack. This will be confirmed with a confirmation message.
+(Note, you must be an operator with commands enabled to run the /reload command).
+
+If you have any issues installing, visit our discord and ask for help in the #help-desk channel.
+https://discord.gg/yqk4VfA

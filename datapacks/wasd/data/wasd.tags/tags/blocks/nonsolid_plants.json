@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:saplings",
+    "#wasd.tags:all_plants",
+    "#wasd.tags:crops",
+    "minecraft:vine",
+    "minecraft:grass",
+    "minecraft:red_mushroom",
+    "minecraft:brown_mushroom",
+    "minecraft:moss_carpet",
+    "minecraft:hanging_roots",
+    "minecraft:big_dripleaf",
+    "minecraft:small_dripleaf",
+    "minecraft:glow_lichen",
+    "minecraft:spore_blossom",
+    "minecraft:mangrove_propagule"
+  ]
+}

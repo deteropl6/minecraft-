@@ -1,0 +1,1 @@
+{"criteria":{"requirement":{"trigger":"minecraft:consume_item","conditions":{"item":{"items":["minecraft:mushroom_stew"]}}}},"rewards":{"function":"cchesed:foodstatus/mushroom_stew"}}

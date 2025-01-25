@@ -1,0 +1,41 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#SD",
+        "PCR",
+        "KBM"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:jigsaw"
+        },
+        "S": {
+            "item": "minecraft:structure_void"
+        },
+        "D": {
+            "item": "minecraft:debug_stick"
+        },
+        "P": {
+            "item": "minecraft:structure_block"
+        },
+        "C": {
+            "item": "minecraft:chain_command_block"
+        },
+        "R": {
+            "item": "minecraft:repeating_command_block"
+        },
+        "K": {
+            "item": "minecraft:command_block"
+        },
+        "B": {
+            "item": "minecraft:barrier"
+        },
+        "M": {
+            "item": "minecraft:command_block_minecart"
+        }
+    },
+    "result": {
+        "item": "minecraft:light",
+        "count": 1
+    }
+}

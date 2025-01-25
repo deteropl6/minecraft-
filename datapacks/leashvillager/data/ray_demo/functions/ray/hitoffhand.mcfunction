@@ -1,0 +1,2 @@
+execute as @a[nbt={Inventory:[{Slot:-106b,id:"minecraft:lead"}]},scores={leashed=1..}] if entity @e[type=villager,distance=..1.5] as @s run data modify entity @e[type=villager,sort=nearest,limit=1] Leash set from entity @s {}
+execute as @a[nbt={Inventory:[{Slot:-106b,id:"minecraft:lead"}]},scores={leashed=1..}] if entity @e[type=villager,distance=..1.5] as @s unless entity @s[gamemode=creative] run clear @s lead 1

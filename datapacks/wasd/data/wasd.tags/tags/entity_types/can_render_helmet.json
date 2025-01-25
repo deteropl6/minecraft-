@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:villager",
+    "minecraft:wandering_trader",
+    "minecraft:drowned",
+    "minecraft:evoker",
+    "minecraft:husk",
+    "minecraft:pillager",   
+    "minecraft:skeleton",   
+    "minecraft:stray",   
+    "minecraft:vex",   
+    "minecraft:vindicator",   
+    "minecraft:wither_skeleton",   
+    "minecraft:zombie",   
+    "minecraft:zombie_villager",   
+    "minecraft:illusioner",   
+    "minecraft:piglin",
+    "minecraft:piglin_brute",
+    "minecraft:zombified_piglin",
+    "minecraft:player"         
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "#wasd.tags:plant_soil",
+    "#wasd.tags:stone",
+    "#wasd.tags:trees",
+    "#wasd.tags:liquids",
+    "#wasd.tags:all_sands",
+    "#wasd.tags:all_plants",
+    "minecraft:clay",
+    "minecraft:bedrock"
+  ]
+}

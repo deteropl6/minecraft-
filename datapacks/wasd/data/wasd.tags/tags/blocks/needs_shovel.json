@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:sand",
+    "#wasd.tags:concrete_powder",
+    "minecraft:clay",
+    "minecraft:farmland",
+    "minecraft:grass_block",
+    "minecraft:dirt_path",
+    "minecraft:gravel",
+    "minecraft:mycelium",
+    "minecraft:podzol",
+    "minecraft:coarse_dirt",
+    "minecraft:dirt",
+    "minecraft:soul_sand",
+    "minecraft:snow_block",
+    "minecraft:snow"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+	"criteria": {
+		"placeholder": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "wasd.sword:sword_crafter_zzz"
+			}
+		}
+	},
+	"rewards": {
+		"function": "wasd.lib:craft/sword_crafter"
+	}
+}

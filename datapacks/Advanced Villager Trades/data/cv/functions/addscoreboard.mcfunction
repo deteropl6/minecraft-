@@ -1,0 +1,10 @@
+scoreboard objectives add RNG1 dummy
+scoreboard objectives add RNG2 dummy
+scoreboard objectives add RNG3 dummy
+scoreboard objectives add RNG4 dummy
+scoreboard objectives add RNG5 dummy
+scoreboard objectives add RNG6 dummy
+scoreboard objectives add RNG7 dummy
+scoreboard objectives add RNG8 dummy
+scoreboard objectives add RNG9 dummy
+scoreboard objectives add RNG10 dummy

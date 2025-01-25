@@ -1,0 +1,13 @@
+{
+	"criteria": {
+		"placeholder": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "wasd.crossbow:bow_crafter_z"
+			}
+		}
+	},
+	"rewards": {
+		"function": "wasd.lib:craft/crossbow_crafter"
+	}
+}

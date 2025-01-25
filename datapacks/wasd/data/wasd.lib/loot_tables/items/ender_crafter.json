@@ -1,0 +1,19 @@
+{
+	"pools": [
+	  {
+		"rolls": 1,
+		"entries": [
+		  {
+			"type": "minecraft:item",
+			"name": "minecraft:item_frame",
+			"functions": [
+			  {
+				"function": "minecraft:set_nbt",
+				"tag": "{display:{Name:'{\"text\":\"Ender Crafter\",\"italic\":false}'},CustomModelData:6370003,EntityTag:{Item:{id:\"minecraft:item_frame\",Count:1b,tag:{CustomModelData:6370003}},Tags:[\"wasd.ender_crafter\"],Facing:1b,Invulnerable:1b,Invisible:1b,Fixed:1b}}"
+			  }
+			]
+		  }
+		]
+	  }
+	]
+  }

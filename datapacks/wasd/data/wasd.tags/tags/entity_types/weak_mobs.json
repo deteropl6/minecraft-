@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "#wasd.tags:passive_mobs",
+    "minecraft:cave_spider",
+    "minecraft:spider",
+    "minecraft:endermite",
+    "minecraft:creeper",
+    "minecraft:husk",
+    "minecraft:drowned",
+    "minecraft:pillager",   
+    "minecraft:silverfish",   
+    "minecraft:slime",   
+    "minecraft:skeleton",      
+    "minecraft:stray",   
+    "minecraft:zombie",   
+    "minecraft:zombie_villager",   
+    "minecraft:piglin",
+    "minecraft:zombified_piglin"  
+  ]
+}

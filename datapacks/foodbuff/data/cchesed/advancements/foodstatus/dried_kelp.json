@@ -1,0 +1,1 @@
+{"criteria":{"requirement":{"trigger":"minecraft:consume_item","conditions":{"item":{"items":["minecraft:dried_kelp"]}}}},"rewards":{"function":"cchesed:foodstatus/dried_kelp"}}

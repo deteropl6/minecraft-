@@ -1,0 +1,1 @@
+{"criteria":{"requirement":{"trigger":"minecraft:consume_item","conditions":{"item":{"items":["minecraft:chorus_fruit"]}}}},"rewards":{"function":"cchesed:foodstatus/chorus_fruit"}}

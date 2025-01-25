@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "#wasd.tags:stone",
+    "#wasd.tags:ores",
+    "#minecraft:ice",
+    "#minecraft:walls",
+    "#wasd.tags:terracotta",
+    "#wasd.tags:nether",
+    "#wasd.tags:concrete",
+    "#wasd.tags:sandstone",
+    "minecraft:ender_chest",
+    "minecraft:anvil",
+    "minecraft:chipped_anvil",
+    "minecraft:damaged_anvil",
+    "minecraft:coal_block",
+    "minecraft:diamond_block",
+    "minecraft:emerald_block",
+    "minecraft:iron_block",
+    "minecraft:redstone_block",
+    "minecraft:gold_block",
+    "minecraft:dispenser",
+    "minecraft:dropper",
+    "minecraft:furnace",
+    "minecraft:hopper",
+    "minecraft:iron_trapdoor",
+    "minecraft:brewing_stand"
+  ]
+}

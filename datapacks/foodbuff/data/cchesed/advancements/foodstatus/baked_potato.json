@@ -1,0 +1,1 @@
+{"criteria":{"requirement":{"trigger":"minecraft:consume_item","conditions":{"item":{"items":["minecraft:baked_potato"]}}}},"rewards":{"function":"cchesed:foodstatus/baked_potato"}}

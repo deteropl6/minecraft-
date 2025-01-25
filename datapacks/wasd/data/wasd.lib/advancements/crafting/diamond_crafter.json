@@ -1,0 +1,13 @@
+{
+	"criteria": {
+		"placeholder": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "wasd.diamond:diamond_crafter_z"
+			}
+		}
+	},
+	"rewards": {
+		"function": "wasd.lib:craft/diamond_crafter"
+	}
+}

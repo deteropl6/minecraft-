@@ -1,0 +1,11 @@
+{
+    "criteria": {
+      "trigger_on_join": {
+        "trigger": "minecraft:impossible"
+      }
+    },
+    "rewards": {
+      "function": "ray_demo:player_join"
+    }
+  }
+  

@@ -1,0 +1,1 @@
+give @p bow{ender_warp:1,display:{Name:'[{"text":"➼ ","color":"red","italic":false},{"text":"Teleportation Bow","italic":false,"color":"gold","bold":true},{"text":" ➼","color":"red","italic":false}]',Lore:['{"text":"Ender Warp","italic":false,"color":"gray"}']},Enchantments:[{id:ender_warp,lvl:1}]}

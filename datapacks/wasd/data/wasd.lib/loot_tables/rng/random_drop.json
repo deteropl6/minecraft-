@@ -1,0 +1,20 @@
+{
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:loot_table",
+            "weight": 1,
+            "name": "wasd.lib:rng/random_item"
+          },
+          {
+            "type": "minecraft:loot_table",
+            "weight": 2,
+            "name": "wasd.lib:rng/random_block"
+          }
+        ]
+      }
+    ]
+  }
+  

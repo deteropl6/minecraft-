@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:cave_spider",
+    "minecraft:spider",
+    "minecraft:endermite",
+    "minecraft:husk",
+    "minecraft:magma_cube", 
+    "minecraft:pillager",   
+    "minecraft:silverfish",   
+    "minecraft:skeleton",      
+    "minecraft:stray",   
+    "minecraft:zombie",   
+    "minecraft:zombie_villager"   
+  ]
+}

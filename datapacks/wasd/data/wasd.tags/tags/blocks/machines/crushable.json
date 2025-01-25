@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "#wasd.tags:concrete",
+    "minecraft:stone",
+    "minecraft:cobblestone",
+    "minecraft:gravel",
+    "minecraft:dirt",
+    "minecraft:stone_bricks",
+    "minecraft:polished_granite",
+    "minecraft:polished_diorite",
+    "minecraft:polished_andesite",
+    "#wasd.tags:ores"
+  ]
+}

@@ -1,0 +1,10 @@
+scoreboard players reset @e RNG1
+scoreboard players reset @e RNG2
+scoreboard players reset @e RNG3
+scoreboard players reset @e RNG4
+scoreboard players reset @e RNG5
+scoreboard players reset @e RNG6
+scoreboard players reset @e RNG7
+scoreboard players reset @e RNG8
+scoreboard players reset @e RNG9
+scoreboard players reset @e RNG10

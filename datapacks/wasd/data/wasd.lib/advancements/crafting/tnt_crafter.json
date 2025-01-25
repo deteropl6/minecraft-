@@ -1,0 +1,13 @@
+{
+	"criteria": {
+		"placeholder": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "wasd.tnt:tnt_crafter_zzz"
+			}
+		}
+	},
+	"rewards": {
+		"function": "wasd.lib:craft/tnt_crafter"
+	}
+}

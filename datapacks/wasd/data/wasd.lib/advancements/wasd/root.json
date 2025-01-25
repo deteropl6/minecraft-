@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:brick",
+      "nbt": "{CustomModelData:6370001}"
+    },
+    "title": "WASD Datapacks",
+    "description":"All the WASD Datapacks that are installed.",
+    "frame": "challenge",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "minecraft:textures/block/gray_concrete_powder.png"
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

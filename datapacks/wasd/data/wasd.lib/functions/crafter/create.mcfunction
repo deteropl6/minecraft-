@@ -1,0 +1,2 @@
+summon minecraft:item_frame ~ ~ ~ {Invisible:1b,Fixed:1b,Facing:1b,Invulnerable:1b,Tags:["wasd.lib_entity_tick","wasd.custom_crafter"],Item:{id:"minecraft:gold_nugget",Count:1b,tag:{CustomModelData:6370197,display:{Name:"{\"text\":\"Custom Crafter\"}"}}}}
+data merge block ~ ~-0.1 ~ {CustomName:"{\"text\":\"Custom Crafter\"}"}

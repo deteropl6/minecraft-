@@ -1,0 +1,1 @@
+{"criteria":{"requirement":{"trigger":"minecraft:consume_item","conditions":{"item":{"items":["minecraft:pumpkin_pie"]}}}},"rewards":{"function":"cchesed:foodstatus/pumpkin_pie"}}
