@@ -1,0 +1,2 @@
+summon minecraft:fireball ~ ~-2.3 ~ {Tags:["dragon_fireball","dragon_fireball_direction"],ExplosionPower:2,power:[0.0,0.0,0.0],Item:{id:"minecraft:ender_eye",Count:1b}}
+execute as @s at @s run playsound entity.ender_dragon.shoot hostile @a[distance=..128] ~ ~ ~ 8 1

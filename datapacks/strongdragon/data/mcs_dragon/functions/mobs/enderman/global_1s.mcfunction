@@ -1,0 +1,3 @@
+execute if score #mcs_dragon mcs_dragon_allow.enderman.take.damage.in.cauldron matches 1 run execute as @s at @s run execute if block ~ ~ ~ water_cauldron run effect give @s wither 1 1 true
+execute if score #mcs_dragon mcs_dragon_allow.enderman.extra.damage.with.block matches 1 run function mcs_dragon:mobs/enderman/gamerules/extra_damage_block
+execute if score #mcs_dragon mcs_dragon_allow.enderman.collect.chorus_fruit matches 1 run execute as @s[predicate=!mcs_dragon:attack16] at @s run execute as @e[type=item,nbt={Item:{id:"minecraft:chorus_fruit"}},distance=..2.3] at @s run function mcs_dragon:mobs/enderman/collect_end_fruit

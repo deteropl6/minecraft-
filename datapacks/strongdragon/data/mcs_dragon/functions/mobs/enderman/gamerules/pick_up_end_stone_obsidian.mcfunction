@@ -1,0 +1,2 @@
+execute as @s[predicate=mcs_dragon:mobs/rare_enderman_holdable,nbt={OnGround:1b},predicate=mcs_dragon:chance/0.2] at @s run execute if block ~ ~ ~ air at @s run function mcs_dragon:mobs/enderman/block_place
+execute as @s[predicate=!mcs_dragon:attack16,tag=!enderman_carry_block,predicate=mcs_dragon:chance/0.01] at @s run execute if block ~ ~-1 ~ #mcs_dragon:rare_enderman_holdable at @s run execute unless block ~ ~-2 ~ air at @s run function mcs_dragon:mobs/enderman/rare_enderman_holdable

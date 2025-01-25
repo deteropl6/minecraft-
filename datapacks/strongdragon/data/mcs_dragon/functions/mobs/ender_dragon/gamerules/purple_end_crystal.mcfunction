@@ -1,0 +1,3 @@
+execute as @s[nbt={DragonPhase:0},predicate=mcs_dragon:chance/0.01,predicate=mcs_dragon:y_cords/80..120] at @s run execute if block ~ ~ ~ #mcs_dragon:non_solid_blocks at @s run summon marker ~ ~ ~ {Tags:["purple_new_crystal_marker"]}
+execute as @s at @s run execute as @e[type=end_crystal,tag=!dragon_crystal,tag=!purple_dragon_crystal,distance=..190] at @s run execute if block ~ ~-1 ~ #mcs_dragon:end_crystall_spawn_blocks at @s run function mcs_dragon:mobs/ender_dragon/glow_crystall/spawn_purple_crystall
+execute as @s[predicate=mcs_dragon:chance/0.2,nbt={DragonPhase:0}] at @s run tp @s @e[tag=purple_dragon_crystal,limit=1,sort=random,distance=..80]

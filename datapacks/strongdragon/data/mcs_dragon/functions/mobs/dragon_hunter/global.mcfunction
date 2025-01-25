@@ -1,0 +1,4 @@
+execute if score #mcs_dragon mcs_dragon_allow.dragon_hunter.fly matches 1 run function mcs_dragon:mobs/dragon_hunter/gamerule/fly
+execute as @s[predicate=mcs_dragon:chance/0.1] at @s run playsound entity.ender_dragon.ambient hostile @a[distance=..16] ~ ~ ~ 1 1.5
+execute if score #mcs_dragon mcs_dragon_allow.dragon_hunter.purpur_fireball.summon matches 1 run execute as @s[predicate=mcs_dragon:chance/0.05,predicate=mcs_dragon:attack16] at @s run function mcs_dragon:mobs/dragon_hunter/purpur_fireball
+execute if score #mcs_dragon mcs_dragon_allow.dragon_hunter.random.weapon matches 1 run execute as @s[tag=!weapon_get] at @s run function mcs_dragon:mobs/dragon_hunter/weapon_get

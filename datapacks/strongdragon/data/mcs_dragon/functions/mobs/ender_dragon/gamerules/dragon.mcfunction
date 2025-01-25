@@ -1,0 +1,2 @@
+execute as @e[type=ender_dragon,tag=!ender_dragon,predicate=!mcs_dragon:ignore_datapack_mobs] at @s run execute at @p[distance=..80] at @s run data merge entity @s {Health:100f,Team:"dragon",Tags:[ender_dragon],DragonPhase:1,Attributes:[{Name:"generic.max_health",Base:400}]}
+execute as @e[tag=ender_dragon] at @s run execute at @p[distance=..80] at @s run function mcs_dragon:mobs/ender_dragon/3s

@@ -1,0 +1,1 @@
+scoreboard players set #mcs_dragon mcs_dragon_allow.ender_dragon.aggressiveness.with.low.hp 1

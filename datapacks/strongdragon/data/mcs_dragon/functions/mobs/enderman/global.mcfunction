@@ -1,0 +1,4 @@
+execute if score #mcs_dragon mcs_dragon_allow.enderman.sunlight.burn matches 1 run execute as @s[predicate=mcs_dragon:enderman_on_fire,predicate=mcs_dragon:chance/0.2] at @s run data merge entity @s {Fire:20s}
+execute if score #mcs_dragon mcs_dragon_allow.common.enderman.tp.in.end matches 1 run execute as @s[predicate=mcs_dragon:chance/0.05,predicate=mcs_dragon:the_end] at @s run function mcs_dragon:mobs/enderman/teleport
+execute if score #mcs_dragon mcs_dragon_allow.enderman.pick.up.end_stone.and.obsidian matches 1 run function mcs_dragon:mobs/enderman/gamerules/pick_up_end_stone_obsidian
+execute if score #mcs_dragon mcs_dragon_allow.enderman.teleport.with.transports matches 1 run execute as @s at @s run execute as @e[predicate=mcs_dragon:mobs/enderman_sit_in_transport,distance=..0.5,limit=1] at @s run function mcs_dragon:mobs/enderman/teleport_with_transport

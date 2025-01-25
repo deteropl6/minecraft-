@@ -1,0 +1,3 @@
+execute as @s[nbt={DragonPhase:0},predicate=mcs_dragon:chance/0.2,predicate=mcs_dragon:y_cords/80..120] at @s run execute if block ~ ~ ~ #mcs_dragon:non_solid_blocks at @s run function mcs_dragon:summon/entities/end_crystal/random
+execute as @s[nbt={DragonPhase:0},predicate=mcs_dragon:chance/0.05,predicate=mcs_dragon:y_cords/80..120] at @s run execute if block ~ ~ ~ #mcs_dragon:non_solid_blocks at @s run function mcs_dragon:mobs/ender_dragon/x4_crystal
+execute if score #mcs_dragon mcs_dragon_allow.purple.end_crystal.spawn matches 1 run function mcs_dragon:mobs/ender_dragon/gamerules/purple_end_crystal

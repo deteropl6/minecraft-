@@ -1,0 +1,37 @@
+{
+  "condition": "minecraft:alternative",
+  "terms": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "type": "minecraft:boat",
+        "passenger": {
+          "type": "minecraft:enderman"
+        }
+      }
+    },
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "type": "minecraft:chest_boat",
+        "passenger": {
+          "type": "minecraft:enderman"
+        }
+      }
+    },
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "type": "minecraft:minecart",
+        "passenger": {
+          "type": "minecraft:enderman"
+        }
+      }
+    }
+  ]
+}
+
+  

@@ -1,0 +1,1 @@
+scoreboard players set #mcs_dragon mcs_dragon_allow.enderman.spawn.with.mossy.stone.brick.in.the_end 0

@@ -1,0 +1,2 @@
+execute as @s[nbt=!{DragonPhase:3},nbt={Invulnerable:1b}] at @s run execute unless entity @e[tag=purple_dragon_crystal,distance=..32,limit=1] at @s run data merge entity @s {Invulnerable:0b,Glowing:0b}
+execute if score #mcs_dragon mcs_dragon_allow.purple.end_crystal.spawn matches 1 run execute as @s[nbt=!{Invulnerable:1b}] at @s run execute at @e[tag=purple_dragon_crystal,distance=..32,limit=1] at @s run data merge entity @s {Invulnerable:1b,Glowing:1b}

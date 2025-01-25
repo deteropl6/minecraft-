@@ -1,0 +1,1 @@
+scoreboard players set #mcs_dragon mcs_dragon_allow.red.end_crystal.spawn 0

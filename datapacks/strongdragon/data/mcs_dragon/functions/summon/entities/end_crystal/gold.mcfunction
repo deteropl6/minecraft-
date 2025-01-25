@@ -1,0 +1,1 @@
+summon end_crystal ~ ~ ~ {Glowing:1b,ShowBottom:0b,Tags:["special_dragon_crystal","dragon_crystal","gold_crystal","selected_crystal"]}

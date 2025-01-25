@@ -1,0 +1,2 @@
+execute if score #mcs_dragon mcs_dragon_allow.new.elytra.mechanics matches 1 run execute as @s[nbt={Inventory:[{id:"minecraft:elytra",Slot:102b}]}] at @s run function mcs_dragon:item/elytra/global
+execute if score #mcs_dragon mcs_dragon_allow.connected.world matches 1 run function mcs_dragon:player/connected_world

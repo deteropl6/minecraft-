@@ -1,0 +1,2 @@
+execute as @s[nbt={Inventory:[{id:"minecraft:elytra",Slot:102b,tag:{Enchantments:[{id:"minecraft:mending"}]}}]}] at @s run function mcs_dragon:item/elytra/remove_mending
+execute as @s[nbt={Inventory:[{id:"minecraft:elytra",Slot:102b}]},nbt=!{Inventory:[{id:"minecraft:elytra",Slot:102b,tag:{mcs_elytra:1b}}]}] at @s run item modify entity @s armor.chest mcs_dragon:item/elytra/better_elytra

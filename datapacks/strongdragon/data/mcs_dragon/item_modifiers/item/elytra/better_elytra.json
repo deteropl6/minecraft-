@@ -1,0 +1,6 @@
+[
+  {
+    "function": "minecraft:set_nbt",
+    "tag": "{mcs_elytra:1b,durability:384,max_durability:384,Unbreakable:1b,HideFlags:4,Enchantments:[]}"
+  }
+]

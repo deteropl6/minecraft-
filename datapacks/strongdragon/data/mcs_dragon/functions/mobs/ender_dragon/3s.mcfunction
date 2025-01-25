@@ -1,0 +1,3 @@
+execute if score #mcs_dragon mcs_dragon_allow.ender_dragon.super.attack matches 1 run execute as @s[predicate=mcs_dragon:chance/0.05] at @s run execute if block ~ ~ ~ #mcs_dragon:non_solid_blocks at @s run function mcs_dragon:mobs/ender_dragon/super
+execute if score #mcs_dragon mcs_dragon_allow.ender_dragon.new.crystall.spawn matches 1 run function mcs_dragon:mobs/ender_dragon/gamerules/new_crystal_3s
+execute if score #mcs_dragon mcs_dragon_allow.ender_dragon.aggressiveness.with.low.hp matches 1 run execute as @s[nbt={Invulnerable:0b}] at @s run function mcs_dragon:mobs/ender_dragon/gamerules/aggressivness

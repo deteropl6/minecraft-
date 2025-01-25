@@ -1,0 +1,1 @@
+scoreboard players set #mcs_dragon mcs_dragon_allow.enderman.collect.chorus_fruit 0

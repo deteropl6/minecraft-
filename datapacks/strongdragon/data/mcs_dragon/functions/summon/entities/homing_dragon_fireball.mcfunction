@@ -1,0 +1,1 @@
+summon minecraft:fireball ~ ~ ~ {Tags:["dragon_fireball","dragon_fireball_direction"],ExplosionPower:2,power:[0.0,0.0,0.0],Item:{id:"minecraft:ender_eye",Count:1b}}

@@ -1,0 +1,4 @@
+execute as @s[nbt={Inventory:[{id:"minecraft:elytra",Slot:102b}]},nbt=!{Inventory:[{id:"minecraft:elytra",Slot:102b,tag:{Enchantments:[{id:"minecraft:unbreaking"}]}}]}] at @s run function mcs_dragon:item/elytra/durability_lose
+execute as @s[nbt={Inventory:[{id:"minecraft:elytra",Slot:102b,tag:{Enchantments:[{id:"minecraft:unbreaking",lvl:1s}]}}]},predicate=mcs_dragon:item/unbreaking/1lvl] at @s run function mcs_dragon:item/elytra/durability_lose
+execute as @s[nbt={Inventory:[{id:"minecraft:elytra",Slot:102b,tag:{Enchantments:[{id:"minecraft:unbreaking",lvl:2s}]}}]},predicate=mcs_dragon:item/unbreaking/2lvl] at @s run function mcs_dragon:item/elytra/durability_lose
+execute as @s[nbt={Inventory:[{id:"minecraft:elytra",Slot:102b,tag:{Enchantments:[{id:"minecraft:unbreaking",lvl:3s}]}}]},predicate=mcs_dragon:item/unbreaking/3lvl] at @s run function mcs_dragon:item/elytra/durability_lose

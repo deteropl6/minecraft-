@@ -1,0 +1,4 @@
+execute if score #mcs_dragon mcs_dragon_allow.enderman.special.attacks matches 1 run execute as @s[predicate=mcs_dragon:chance/0.2] at @s run effect give @s levitation 1 3 true
+execute if score #mcs_dragon mcs_dragon_allow.enderman.special.attacks matches 1 run execute as @s[predicate=mcs_dragon:chance/0.2] at @s run effect give @s blindness 3 0 true
+execute if score #mcs_dragon mcs_dragon_allow.enderman.special.attacks matches 1 run execute as @s[predicate=mcs_dragon:chance/0.2] at @s run tp @p[distance=..16,limit=1,sort=nearest] @e[type=enderman,predicate=mcs_dragon:attack16,distance=..16,limit=1,sort=nearest]
+advancement revoke @s only mcs_dragon:enderman_hit_player

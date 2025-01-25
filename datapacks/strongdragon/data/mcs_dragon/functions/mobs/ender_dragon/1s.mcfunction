@@ -1,0 +1,3 @@
+execute if score #mcs_dragon mcs_dragon_allow.ender_dragon.immune.to.damage.while.landing matches 1 run function mcs_dragon:mobs/ender_dragon/gamerules/landing
+execute if score #mcs_dragon mcs_dragon_allow.ender_dragon.new.crystall.spawn matches 1 run function mcs_dragon:mobs/ender_dragon/gamerules/new_crystal
+execute if score #mcs_dragon mcs_dragon_allow.ender_dragon.shoot.ender_eye.fireball matches 1 run execute as @s[nbt={DragonPhase:0},predicate=mcs_dragon:chance/0.1] at @s run execute if block ~ ~ ~ #mcs_dragon:non_solid_blocks at @s run function mcs_dragon:mobs/ender_dragon/homing_fireball

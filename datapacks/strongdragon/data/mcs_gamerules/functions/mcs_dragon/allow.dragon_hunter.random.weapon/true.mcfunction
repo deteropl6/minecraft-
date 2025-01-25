@@ -1,0 +1,1 @@
+scoreboard players set #mcs_dragon mcs_dragon_allow.dragon_hunter.random.weapon 1

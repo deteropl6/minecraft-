@@ -1,0 +1,1 @@
+scoreboard players set #mcs_dragon mcs_dragon_allow.new.elytra.mechanics 0

@@ -1,0 +1,6 @@
+execute if score #mcs_dragon mcs_dragon_allow.dragon_hunter.spawn matches 1 run execute as @s[predicate=mcs_dragon:chance/0.05] at @s run function mcs_dragon:naturally_spawning/dragon_hunter
+execute if score #mcs_dragon mcs_dragon_allow.white_shulker.spawn matches 1 run execute as @s[predicate=mcs_dragon:chance/0.01] at @s run execute if block ~ ~-1 ~ end_stone at @s run function mcs_dragon:naturally_spawning/white_shulker
+execute if score #mcs_dragon mcs_dragon_allow.silverfish.spawn matches 1 run execute as @s[predicate=mcs_dragon:chance/0.1] at @s run function mcs_dragon:naturally_spawning/silverfish
+execute if score #mcs_dragon mcs_dragon_allow.phantom.spawn matches 1 run execute as @s[predicate=mcs_dragon:chance/0.05] at @s run execute if block ~ ~10 ~ air at @s run summon phantom ~ ~10 ~
+execute if score #mcs_dragon mcs_dragon_allow.enderman.spawn.with.mossy.stone.brick.in.the_end matches 1 run execute as @s[predicate=mcs_dragon:chance/0.01] at @s run data merge entity @s {carriedBlockState:{Name:"minecraft:mossy_stone_bricks"}}
+execute if score #mcs_dragon mcs_dragon_allow.enderman.spawn.with.mossy.stone.brick.in.the_end matches 1 run execute as @s[predicate=mcs_dragon:chance/0.01] at @s run data merge entity @s {carriedBlockState:{Name:"minecraft:infested_mossy_stone_bricks"}}

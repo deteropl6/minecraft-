@@ -1,0 +1,6 @@
+[
+  {
+    "function": "minecraft:set_nbt",
+    "tag": "{display:{Lore:['{\"text\":\"Unbreaking III\",\"color\":\"gray\",\"italic\":false}']},HideFlags:1,better_elytra:1b,unbreaking:3b,Enchantments:[{id:\"minecraft:unbreaking\",lvl:100s}]}"
+  }
+]

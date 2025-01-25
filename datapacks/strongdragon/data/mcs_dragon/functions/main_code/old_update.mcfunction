@@ -1,0 +1,1 @@
+execute as @e[tag=dragon_guardian] at @s run execute at @p[distance=..80] at @s run function mcs_dragon:main_code/update/dragon_hunter

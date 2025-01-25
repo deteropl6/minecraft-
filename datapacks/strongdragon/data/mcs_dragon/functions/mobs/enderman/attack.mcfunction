@@ -1,0 +1,2 @@
+execute if score #mcs_dragon mcs_dragon_allow.enderman.group.attack matches 1 run execute as @e[tag=enderman] at @s run data modify entity @s AngryAt set from entity @p[sort=nearest,advancements={mcs_dragon:enderman_damage=true},distance=..16] UUID
+advancement revoke @s only mcs_dragon:enderman_damage

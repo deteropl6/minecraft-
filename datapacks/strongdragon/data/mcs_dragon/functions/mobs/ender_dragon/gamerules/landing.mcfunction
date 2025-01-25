@@ -1,0 +1,2 @@
+execute as @s[nbt={DragonPhase:3},nbt=!{Invulnerable:1b}] at @s run data merge entity @s {Invulnerable:1b,Glowing:1b}
+execute as @s[nbt=!{DragonPhase:3},nbt={Invulnerable:1b}] at @s run execute unless entity @e[tag=purple_dragon_crystal,distance=..32,limit=1] at @s run data merge entity @s {Invulnerable:0b,Glowing:0b}

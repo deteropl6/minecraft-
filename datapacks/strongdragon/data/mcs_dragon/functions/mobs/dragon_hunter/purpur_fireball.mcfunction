@@ -1,0 +1,2 @@
+execute as @s at @s run playsound entity.ender_dragon.shoot hostile @a[distance=..16] ~ ~ ~ 1 1.5
+summon minecraft:fireball ~ ~10 ~ {Tags:["purpur_fireball"],ExplosionPower:1,power:[0.0,0.0,0.0],Item:{id:"minecraft:purpur_block",Count:1b}}
