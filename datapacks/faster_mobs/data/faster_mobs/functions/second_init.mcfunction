@@ -1,0 +1,1 @@
+execute if score #whose_turn quatro.dummy = #quatro_id faster_mobs run function faster_mobs:second

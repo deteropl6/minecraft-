@@ -1,0 +1,19 @@
+{
+	"replace": false,
+	"values":[
+		"minecraft:creeper",
+		"minecraft:husk",
+		"minecraft:illusioner",
+		"minecraft:magma_cube",
+		"minecraft:piglin",
+		"minecraft:pillager",
+		"minecraft:slime",
+		"minecraft:spider",
+		"minecraft:wither_skeleton",
+		"minecraft:zoglin",
+		"minecraft:zombie",
+		"minecraft:zombified_piglin",
+		"minecraft:zombie_villager",
+		"minecraft:snow_golem"
+	]
+}
