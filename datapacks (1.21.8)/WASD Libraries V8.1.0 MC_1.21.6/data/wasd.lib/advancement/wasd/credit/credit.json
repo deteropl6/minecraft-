@@ -1,0 +1,24 @@
+{
+  "parent": "wasd.lib:wasd/root",
+  "display": {
+    "icon": {
+      "id": "minecraft:player_head",
+      "components": {
+        "minecraft:profile": {
+          "name": "admin4cc"
+        }
+      }
+    },
+    "title": "Amazing Contributors",
+    "description": "\nSome awesome people that have helped me out\n",
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

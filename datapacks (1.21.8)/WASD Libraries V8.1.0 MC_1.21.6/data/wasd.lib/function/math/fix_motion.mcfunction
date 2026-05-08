@@ -1,0 +1,1 @@
+execute as @e[tag=wasd.item_given_motion] run data merge entity @s {NoGravity:0b}

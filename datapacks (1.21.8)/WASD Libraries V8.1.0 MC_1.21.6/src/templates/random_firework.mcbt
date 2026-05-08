@@ -1,0 +1,121 @@
+template random_firework {
+    with lifetime:word lifetime2:word shape:word trail:word color:word motion:word{
+    block {
+    #<LifeTime> <LifeTime 2> <shape> <Flicker/Trail> <colors> <Random Motion true/false>
+    #---(Set "LifeTime 2" to 0 for non random.)
+    #---(Set Type to specific value (ie "star"), or -1 for random)
+    #---(1-4 for Neither, Just Flicker, Just Trail, and Both. -1 for random)
+    #(Set -1 for random, 0-16 for various colors)
+
+        playsound minecraft:entity.firework_rocket.launch block @a ~ ~ ~ 1 1
+        summon firework_rocket ~ ~ ~ {LifeTime:40,Tags:["wasd.random_firework"],FireworksItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:fireworks":{explosions:[{shape:"small_ball",has_twinkle:false,has_trail:false,colors:[I;16711680]}]}}}}
+        execute as @e[type=firework_rocket,tag=wasd.random_firework,sort=nearest,limit=1] at @s run block{
+            scoreboard players set @s wasd.temp <%lifetime%>
+    
+            <%%
+            if (lifetime2==="0"){
+            }else{
+            let rng_lifetime = lifetime2 - lifetime
+            emit(`
+                execute store result score @s wasd.rng run random value 1..${rng_lifetime}
+                scoreboard players operation @s wasd.temp += @s wasd.rng
+                `)
+            }
+            %%>
+            execute store result entity @s LifeTime int 1 run scoreboard players get @s wasd.temp
+    
+            <%%
+            if (shape==="-1"){
+                emit(`
+                    execute store result score @s wasd.rng run random value 1..5
+                    execute as @s[scores={wasd.rng=2}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].shape set value "creeper"
+                    execute as @s[scores={wasd.rng=3}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].shape set value "large_ball"
+                    execute as @s[scores={wasd.rng=4}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].shape set value "star"
+                    execute as @s[scores={wasd.rng=5}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].shape set value "burst"
+                `)
+            }else{
+            emit(`
+                data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].shape set value <%shape%>
+                `)
+            }
+            
+            if (trail==="-1"){
+                emit(`
+                execute store result score @s wasd.rng run random value 1..4
+                    execute as @s[scores={wasd.rng=2}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].has_twinkle set value true
+                    execute as @s[scores={wasd.rng=3..4}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].has_trail set value true
+                    execute as @s[scores={wasd.rng=4}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].has_twinkle set value true
+                `)
+            }else{
+                if (trail==="1"){
+                    emit(`data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].has_twinkle set value true`)
+                }
+                if (trail==="2"){
+                    emit(`data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].has_trail set value true`)
+                }
+                if (trail==="3"){
+                    emit(`data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].has_twinkle set value true`)
+                    emit(`data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].has_trail set value true`)
+                }
+            }
+            
+            if (color==="-1"){
+                emit(`
+                execute store result score @s wasd.rng run random value 1..30
+                `)
+            }else{
+                emit(`scoreboard players set @s wasd.rng <%color%>`)
+            }
+            
+            %%>
+    
+            execute as @s[scores={wasd.rng=1}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 16711680
+            execute as @s[scores={wasd.rng=2}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 16724736
+            execute as @s[scores={wasd.rng=3}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 16737792
+            execute as @s[scores={wasd.rng=4}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 16776960
+            execute as @s[scores={wasd.rng=5}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 10092288
+            execute as @s[scores={wasd.rng=6}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 3997440
+            execute as @s[scores={wasd.rng=7}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 65348
+            execute as @s[scores={wasd.rng=8}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 65442
+            execute as @s[scores={wasd.rng=9}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 65518
+            execute as @s[scores={wasd.rng=10}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 54783
+            execute as @s[scores={wasd.rng=11}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 33023
+            execute as @s[scores={wasd.rng=12}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 19967
+            execute as @s[scores={wasd.rng=13}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 2818303
+            execute as @s[scores={wasd.rng=14}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 8388863
+            execute as @s[scores={wasd.rng=15}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 11731967
+            execute as @s[scores={wasd.rng=16}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 15073535
+            execute as @s[scores={wasd.rng=17}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 16711867
+            execute as @s[scores={wasd.rng=18}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 16711808
+            execute as @s[scores={wasd.rng=19}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 16711705
+            execute as @s[scores={wasd.rng=20}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 16761538
+            execute as @s[scores={wasd.rng=21}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 16741375
+            execute as @s[scores={wasd.rng=22}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 9232639
+            execute as @s[scores={wasd.rng=23}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 8781713
+            execute as @s[scores={wasd.rng=24}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 16775861
+            execute as @s[scores={wasd.rng=25}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 9699328
+            execute as @s[scores={wasd.rng=26}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 9718272
+            execute as @s[scores={wasd.rng=27}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 2331648
+            execute as @s[scores={wasd.rng=28}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 2708
+            execute as @s[scores={wasd.rng=29}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 9699476
+            execute as @s[scores={wasd.rng=30}] run data modify entity @s FireworksItem.components."minecraft:fireworks".explosions[0].colors[0] set value 196610
+             
+    
+            <%%
+            if (motion==="true"){
+                emit(`
+                function wasd.lib:rng/rotation_data
+                execute rotated as @s positioned ^ ^ ^0.1 run function wasd.lib:math/apply_motion
+                `)
+            }
+            %%>
+    
+    
+    
+        }
+    
+        }
+    }
+}
+    
+    

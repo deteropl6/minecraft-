@@ -1,0 +1,21 @@
+#mc-build WASD content
+execute if predicate wasd.boots:wearing_item/item2 run scoreboard players set @s wasd.boot_type 2
+execute if predicate wasd.boots:wearing_item/item3 run scoreboard players set @s wasd.boot_type 3
+execute if predicate wasd.boots:wearing_item/item4 run scoreboard players set @s wasd.boot_type 4
+execute if predicate wasd.boots:wearing_item/item6 run scoreboard players set @s wasd.boot_type 6
+execute if predicate wasd.boots:wearing_item/item7 run scoreboard players set @s wasd.boot_type 7
+execute if predicate wasd.boots:wearing_item/item8 run scoreboard players set @s wasd.boot_type 8
+execute if predicate wasd.boots:wearing_item/item9 run scoreboard players set @s wasd.boot_type 9
+execute if predicate wasd.boots:wearing_item/item10 run scoreboard players set @s wasd.boot_type 10
+execute if predicate wasd.boots:wearing_item/item11 run scoreboard players set @s wasd.boot_type 11
+execute if predicate wasd.boots:wearing_item/item12 run scoreboard players set @s wasd.boot_type 12
+execute if predicate wasd.boots:wearing_item/item13 run scoreboard players set @s wasd.boot_type 13
+execute if predicate wasd.boots:wearing_item/item14 run scoreboard players set @s wasd.boot_type 14
+execute if predicate wasd.boots:wearing_item/item15 run scoreboard players set @s wasd.boot_type 15
+execute if predicate wasd.boots:wearing_item/item16 run scoreboard players set @s wasd.boot_type 16
+execute if predicate wasd.boots:wearing_item/item17 run scoreboard players set @s wasd.boot_type 17
+execute if predicate wasd.boots:wearing_item/item18 run scoreboard players set @s wasd.boot_type 18
+execute if predicate wasd.boots:wearing_item/item19 run scoreboard players set @s wasd.boot_type 19
+execute if predicate wasd.boots:wearing_item/item20 run scoreboard players set @s wasd.boot_type 20
+execute if predicate wasd.boots:wearing_item/item21 run scoreboard players set @s wasd.boot_type 21
+execute if predicate wasd.boots:wearing_item/item22 run scoreboard players set @s wasd.boot_type 22

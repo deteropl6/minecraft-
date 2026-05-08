@@ -1,0 +1,1600 @@
+
+
+function determine_magic{
+    execute as @s[tag=wasd.fireball] run function wasd.magic:fireball
+    execute as @s[tag=wasd.meteor] run function wasd.magic:meteor_wand
+    execute as @s[tag=wasd.meteor_fireball_location] run function wasd.magic:meteor_location
+    execute as @s[tag=wasd.flamethrower] run function wasd.magic:flamethrower
+    execute as @s[tag=wasd.magma] run function wasd.magic:magma
+    execute as @s[tag=wasd.ice] run function wasd.magic:ice
+    execute as @s[tag=wasd.ice_spike] run function wasd.magic:ice_spike
+    execute as @s[tag=wasd.frost] run function wasd.magic:frost
+    execute as @s[tag=wasd.lightning] run function wasd.magic:lightning
+    execute as @s[tag=wasd.thunder] run function wasd.magic:thunder
+    execute as @s[tag=wasd.electric] run function wasd.magic:electric
+    execute as @s[tag=wasd.lightning_rod] run function wasd.magic:lightning_rod
+    execute as @s[tag=wasd.lightning_rod_location] run function wasd.magic:lightning_rod_location
+
+    
+    execute as @s[tag=wasd.air] run function wasd.magic:air
+    execute as @s[tag=wasd.air_location] run function wasd.magic:air_location
+    execute as @s[tag=wasd.wind] run function wasd.magic:wind
+    execute as @s[tag=wasd.hurricane] run function wasd.magic:hurricane
+    execute as @s[tag=wasd.gust] run function wasd.magic:gust
+    execute as @s[tag=wasd.rock] run function wasd.magic:rock
+    execute as @s[tag=wasd.boulder] run function wasd.magic:boulder
+    execute as @s[tag=wasd.earth] run function wasd.magic:earth
+    execute as @s[tag=wasd.earth_spike] run function wasd.magic:earth_spike
+    execute as @s[tag=wasd.ore] run function wasd.magic:ore
+    execute as @s[tag=wasd.steel_target] run function wasd.magic:steel_target
+    execute as @s[tag=wasd.iron_spike] run function wasd.magic:iron_spike
+    execute as @s[tag=wasd.darkness] run function wasd.magic:darkness
+    execute as @s[tag=wasd.cage] run function wasd.magic:cage
+    execute as @s[tag=wasd.poison] run function wasd.magic:poison
+    execute as @s[tag=wasd.dripstone] run function wasd.magic:dripstone
+    execute as @s[tag=wasd.anvil] run function wasd.magic:anvil
+    execute as @s[tag=wasd.water] run function wasd.magic:water
+    execute as @s[tag=wasd.bubble] run function wasd.magic:bubble
+    execute as @s[tag=wasd.bubble_visual] run function wasd.magic:bubble_visual
+    execute as @s[tag=wasd.bubble_big] run function wasd.magic:bubble_big
+    execute as @s[tag=wasd.kfc] run function wasd.magic:kfc
+#new
+    execute as @s[tag=wasd.healing_aura] run function wasd.magic:healing_aura
+    execute as @s[tag=wasd.growing_aura] run function wasd.magic:growing_aura
+    execute as @s[tag=wasd.plant_wand] run function wasd.magic:plant_wand
+    execute as @s[tag=wasd.log_wand] run function wasd.magic:log_wand
+    execute as @s[tag=wasd.log_spike] run function wasd.magic:log_spike
+    execute as @s[tag=wasd.portal_projectile] run function wasd.magic:portal_projectile
+    execute as @s[tag=wasd.circle_portal] run function wasd.magic:circle_portal
+    execute as @s[tag=wasd.undead_projectile] run function wasd.magic:undead_projectile
+    execute as @s[tag=wasd.zombie_arm] run function wasd.magic:zombie_arm
+    execute as @s[tag=wasd.death_projectile] run function wasd.magic:death_projectile
+    execute as @s[tag=wasd.draining_wand] run function wasd.magic:draining_wand
+    execute as @s[tag=wasd.shadow_wand] run function wasd.magic:shadow_wand
+    execute as @s[tag=wasd.shadow_player] run function wasd.magic:shadow_player
+    execute as @s[tag=wasd.shadow_walk] run function wasd.magic:shadow_walk
+    execute as @s[tag=wasd.darkness_projectile] run function wasd.magic:darkness_projectile
+    execute as @s[tag=wasd.dark_teeth] run function wasd.magic:dark_teeth
+    execute as @s[tag=wasd.dark_sword_projectile] run function wasd.magic:dark_sword_projectile
+    execute as @s[tag=wasd.dark_sword_sword] run function wasd.magic:dark_sword_sword
+    execute as @s[tag=wasd.light_orb] run function wasd.magic:light_orb
+    execute as @s[tag=wasd.flash] run function wasd.magic:flash
+    execute as @s[tag=wasd.heavenly_light] run function wasd.magic:heavenly_light
+    execute as @s[tag=wasd.heavenly_light_projectile] run function wasd.magic:heavenly_light_projectile
+    execute as @s[tag=wasd.combustion] run function wasd.magic:combustion
+
+    
+
+
+}
+
+
+
+
+function fireball{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=200..}]
+    particle flame ~ ~ ~ 0.1 0.1 0.1 0.03 3 force
+    particle smoke ~ ~ ~ 0.1 0.1 0.1 0.03 5 force
+    tp @s ^ ^ ^0.4 ~ ~0.2
+    particle dust_color_transition{from_color:[1.0, 0.0, 0.0], scale:2.0, to_color:[1.0, 0.769, 0.0]} ~ ~ ~ 0.0 0.0 0.0 0 1 force
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.hit
+    execute as @s[scores={wasd.timer=10..}] run block{
+        execute positioned ~ ~1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        execute positioned ~ ~ ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        execute positioned ~ ~-1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        }
+    execute as @s[tag=wasd.hit] run block{
+        playsound minecraft:entity.generic.explode player @a ~ ~ ~ 1.5 0.7
+        particle explosion
+        execute positioned ~ ~1 ~ as @e[type=#wasd.tags:mobs_player,distance=..1] run damage @s 6 minecraft:in_fire
+        execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..1] run damage @s 6 minecraft:in_fire
+        execute positioned ~ ~-1 ~ as @e[type=#wasd.tags:mobs_player,distance=..1] run damage @s 6 minecraft:in_fire
+        particle flame ~ ~ ~ 0.1 0.1 0.1 0.15 100 force
+        particle smoke ~ ~ ~ 0.1 0.1 0.1 0.15 150 force
+        particle campfire_cosy_smoke ~ ~ ~ 0.1 0.1 0.1 0.1 30 force
+        fill ~1 ~1 ~1 ~-1 ~-1 ~-1 fire replace #wasd.tags:air
+        kill @s
+    }
+}
+
+function meteor_wand{
+    execute unless block ^ ^ ^0.5 #wasd.tags:nonsolid run summon marker ~ ~ ~ {Tags:["wasd.lib_entity_tick","wasd.ability","wasd.meteor_fireball_location"]}
+    kill @s
+}
+
+function meteor_location{
+    scoreboard players add @s wasd.timer 1
+    scoreboard players add @s wasd.variables 1
+    execute as @s[scores={wasd.variables=1}] store result score @s wasd.rng run random value 2..7 
+    execute if score @s wasd.variables >= @s wasd.rng run block{
+        scoreboard players reset @s wasd.variables
+        execute store result entity @s Rotation[0] float 1 run random value 1..360
+        execute store result score @s wasd.rng run random value 1..10
+        REPEAT(1,10) as i{
+            execute at @s[scores={wasd.rng=<%i+1%>}] positioned ^ ^ ^<%(i+1)/2%> positioned over motion_blocking_no_leaves run summon fireball ~ ~60 ~ {ExplosionPower:2b,Motion:[0.0,-1.0,0.0],power:[0.0,-0.1,0.0],Item:{id:"minecraft:magma_block",Count:1b},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.meteor_fireball"]}
+        }
+    }
+    kill @s[scores={wasd.timer=100..}]
+}
+
+function flamethrower{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=140..}]
+
+    execute as @s[scores={wasd.timer=1..10}] run block{
+        particle flame ~ ~ ~ 0.1 0.1 0.1 0.01 3 force
+        tp @s ^ ^ ^0.4
+    }
+    execute as @s[scores={wasd.timer=11..20}] run block{
+        particle flame ~ ~ ~ 0.2 0.2 0.2 0.01 5 force
+        tp @s ^ ^ ^0.3
+        execute positioned ~ ~1 ~ as @e[type=#wasd.tags:mobs_player,distance=..1] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+        execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..1] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+        execute positioned ~ ~-1 ~ as @e[type=#wasd.tags:mobs_player,distance=..1] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+    }
+    execute as @s[scores={wasd.timer=21..40}] run block{
+        particle flame ~ ~ ~ 0.4 0.4 0.4 0.01 8 force
+        tp @s ^ ^ ^0.2
+        execute positioned ~ ~1 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+        execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+        execute positioned ~ ~-1 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+    }
+    execute as @s[scores={wasd.timer=41..70}] run block{
+        particle flame ~ ~ ~ 0.6 0.6 0.6 0.01 12 force
+        tp @s ^ ^ ^0.15
+        execute positioned ~ ~1 ~ as @e[type=#wasd.tags:mobs_player,distance=..2] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+        execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..2] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+        execute positioned ~ ~-1 ~ as @e[type=#wasd.tags:mobs_player,distance=..2] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+    }
+    execute as @s[scores={wasd.timer=71..100}] run block{
+        particle flame ~ ~ ~ 1 1 1 0.01 16 force
+        tp @s ^ ^ ^0.1
+        execute positioned ~ ~1 ~ as @e[type=#wasd.tags:mobs_player,distance=..2.5] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+        execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..2.5] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+        execute positioned ~ ~-1 ~ as @e[type=#wasd.tags:mobs_player,distance=..2.5] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+    }
+    execute as @s[scores={wasd.timer=101..120}] run block{
+        particle flame ~ ~ ~ 1.2 1.2 1.2 0.01 20 force
+        tp @s ^ ^ ^0.05
+        execute positioned ~ ~1 ~ as @e[type=#wasd.tags:mobs_player,distance=..3] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+        execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..3] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+        execute positioned ~ ~-1 ~ as @e[type=#wasd.tags:mobs_player,distance=..3] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+    }
+    execute as @s[scores={wasd.timer=121..140}] run block{
+        particle flame ~ ~ ~ 1.6 1.6 1.6 0.01 25 force
+        tp @s ^ ^ ^0.05
+        execute positioned ~ ~1 ~ as @e[type=#wasd.tags:mobs_player,distance=..3.5] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+        execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..3.5] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+        execute positioned ~ ~-1 ~ as @e[type=#wasd.tags:mobs_player,distance=..3.5] at @s run block{
+            fill ~ ~ ~ ~ ~ ~ fire replace #wasd.tags:air
+            damage @s 4 minecraft:in_fire
+        }
+    }
+
+
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.hit
+    execute as @s[tag=wasd.hit] run block{
+        particle flame ~ ~ ~ 0.1 0.1 0.1 0.15 100 force
+        particle smoke ~ ~ ~ 0.1 0.1 0.1 0.15 150 force
+        fill ~1 ~1 ~1 ~-1 ~-1 ~-1 fire replace #wasd.tags:air
+        kill @s
+    }
+}
+
+function magma{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=150..}]
+    particle flame ~ ~ ~ 0.1 0.1 0.1 0.03 3 force
+    particle small_flame ~ ~ ~ 0.1 0.1 0.1 0.03 3 force
+    tp @s ^ ^ ^0.3 ~ ~0.2
+    particle dust_color_transition{from_color:[1.0, 0.0, 0.0], scale:2.0, to_color:[1.0, 0.769, 0.0]} ~ ~ ~ 0.2 0.2 0.2 0 3 force
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.hit
+    execute as @s[scores={wasd.timer=16..}] run block{
+        execute positioned ~ ~1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        execute positioned ~ ~ ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        execute positioned ~ ~-1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        }
+    execute as @s[tag=wasd.hit] run block{
+        playsound minecraft:entity.generic.explode player @a ~ ~ ~ 1.5 0.7
+        particle explosion
+        particle flame ~ ~ ~ 0.1 0.1 0.1 0.15 100 force
+        particle smoke ~ ~ ~ 0.1 0.1 0.1 0.15 150 force
+        particle campfire_cosy_smoke ~ ~ ~ 0.1 0.1 0.1 0.1 30 force
+        fill ~1 ~ ~ ~-1 ~1 ~ lava[level=1] replace #wasd.tags:air
+        fill ~ ~ ~1 ~ ~1 ~-1 lava[level=1] replace #wasd.tags:air
+        kill @s
+    }
+
+}
+function ice{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=200..}]
+    tp @s ^ ^ ^0.4 ~ ~0.2
+    particle dust_color_transition{from_color:[0.51, 0.914, 0.988], scale:4.0, to_color:[0.918, 0.996, 1.0]} ~ ~ ~ 0.0 0.0 0.0 0 1 force
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.hit
+    execute as @s[scores={wasd.timer=10..}] run block{
+        execute positioned ~ ~1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        execute positioned ~ ~ ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        execute positioned ~ ~-1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+
+        execute positioned ~ ~1 ~ as @e[type=#wasd.tags:mobs_player,distance=..1] at @s run block{
+            damage @s 2 minecraft:freeze
+            effect give @s minecraft:resistance 3 2 true
+            execute unless entity @s[tag=wasd.frozen] run function wasd.lib:affects/on_freeze_half
+        }
+        execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..1] at @s run block{
+            damage @s 2 minecraft:freeze
+            effect give @s minecraft:resistance 3 2 true
+            execute unless entity @s[tag=wasd.frozen] run function wasd.lib:affects/on_freeze_half
+        }
+        execute positioned ~ ~-1 ~ as @e[type=#wasd.tags:mobs_player,distance=..1] at @s run block{
+            damage @s 2 minecraft:freeze
+            effect give @s minecraft:resistance 3 2 true
+            execute unless entity @s[tag=wasd.frozen] run function wasd.lib:affects/on_freeze_half
+        }
+
+        }
+    execute as @s[tag=wasd.hit] run block{
+        playsound minecraft:block.glass.break player @a ~ ~ ~ 1 0.7
+        particle poof ~ ~0.2 ~ 0.1 0.1 0.1 0.2 300 force
+        particle dust_color_transition{from_color:[0.51, 0.914, 0.988], scale:4.0, to_color:[0.918, 0.996, 1.0]} ~ ~0.2 ~ 1.0 1.0 1.0 0 50 force
+        kill @s
+        execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..3] at @s run block{
+            damage @s 2 minecraft:freeze
+            effect give @s minecraft:resistance 3 2 true
+            execute unless entity @s[tag=wasd.frozen] run function wasd.lib:affects/on_freeze_half
+        }
+
+    }
+}
+function ice_spike{
+    scoreboard players add @s wasd.timer 1
+    execute as @s[scores={wasd.timer=100..}] run scoreboard players set @s wasd.temp 6
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run scoreboard players set @s wasd.temp 6
+    tp @s ^ ^ ^1 ~ ~0.3
+    particle dust_color_transition{from_color:[0.51, 0.914, 0.988], scale:3.0, to_color:[0.918, 0.996, 1.0]} ^ ^ ^-1 0.0 0.0 0.0 0 1 force
+    execute as @s[scores={wasd.timer=3..}] run block{
+        execute positioned ~ ~1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run scoreboard players add @s wasd.temp 1
+        execute positioned ~ ~ ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run scoreboard players add @s wasd.temp 1
+        execute positioned ~ ~-1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run scoreboard players add @s wasd.temp 1
+
+        execute positioned ~ ~1 ~ as @e[type=#wasd.tags:mobs_player,distance=..1,tag=!wasd.already_hit] at @s run block{
+            tag @s add wasd.already_hit
+            damage @s 6 minecraft:player_attack by @n[tag=wasd.ice_spike]
+            playsound minecraft:block.glass.break player @a ~ ~ ~ 1 1.2
+        }
+        execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..1,tag=!wasd.already_hit] at @s run block{
+            tag @s add wasd.already_hit
+            damage @s 6 minecraft:player_attack by @n[tag=wasd.ice_spike]
+            playsound minecraft:block.glass.break player @a ~ ~ ~ 1 1.2
+        }
+        execute positioned ~ ~-1 ~ as @e[type=#wasd.tags:mobs_player,distance=..1,tag=!wasd.already_hit] at @s run block{
+            tag @s add wasd.already_hit
+            damage @s 6 minecraft:player_attack by @n[tag=wasd.ice_spike]
+            playsound minecraft:block.glass.break player @a ~ ~ ~ 1 1.2
+        }
+        tag @e[type=#wasd.tags:mobs_player,distance=..5,tag=wasd.already_hit] remove wasd.already_hit
+    }
+    execute as @s[scores={wasd.temp=4..}] run block{
+        playsound minecraft:block.glass.break player @a ~ ~ ~ 1 0.7
+        particle poof ~ ~0.2 ~ 0.1 0.1 0.1 0.2 30 force
+        particle dust_color_transition{from_color:[0.51, 0.914, 0.988], scale:4.0, to_color:[0.918, 0.996, 1.0]} ~ ~0.2 ~ 1.0 1.0 1.0 0 20 force
+        kill @s
+    }
+}
+function frost{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=50..}]
+    particle dust_color_transition{from_color:[0.51, 0.914, 0.988], scale:3.0, to_color:[0.918, 0.996, 1.0]} ~ ~ ~ 0.0 0.0 0.0 0 1 force
+    execute if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^ ^0.5
+    execute if block ~ ~ ~ #wasd.tags:nonsolid if block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^-1 ^0.5
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tp @s ^ ^1 ^0.5
+
+    execute if block ~ ~-2 ~ #wasd.tags:nonsolid run kill @s
+    execute unless block ~ ~1 ~ #wasd.tags:nonsolid run kill @s
+    scoreboard players add @s wasd.temp 1
+    execute as @s[scores={wasd.temp=10..}] run block{
+        summon area_effect_cloud ~ ~ ~ {Particle:{type:"dust",color:[0.820,0.988,1.000],scale:1},Radius:1f,RadiusPerTick:0.1f,Duration:30,potion_contents:{custom_effects:[{id:"minecraft:slowness",amplifier:1,duration:200}]}}
+        scoreboard players reset @s wasd.temp
+    }
+
+}
+function lightning{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=100..}]
+    particle dust{color:[1.0, 0.945, 0.169], scale:1.0} ~ ~ ~ 0.2 0.2 0.2 0.03 3 force
+    particle end_rod ~ ~ ~ 0.1 0.1 0.1 0.03 5 force
+    tp @s ^ ^ ^1 ~ ~0.2
+    particle dust_color_transition{from_color:[1.0, 0.988, 0.4], scale:2.0, to_color:[1.0, 0.98, 0.682]} ~ ~ ~ 0.0 0.0 0.0 0 1 force
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.hit
+    execute as @s[scores={wasd.timer=5..}] run block{
+        execute positioned ~ ~1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        execute positioned ~ ~ ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        execute positioned ~ ~-1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        }
+    execute as @s[tag=wasd.hit] run block{
+        particle end_rod ~ ~ ~ 0.1 0.1 0.1 0.15 100 force
+        summon lightning_bolt
+        kill @s
+    }
+}
+function thunder{
+    scoreboard players add @s wasd.timer 1
+    scoreboard players add @s wasd.temp 1
+    kill @s[scores={wasd.timer=200..}]
+    particle dust{color:[1.0, 0.945, 0.169], scale:1.0} ~ ~ ~ 0.2 0.2 0.2 0.03 7 force
+    tp @s ^ ^ ^0.2
+    particle dust_color_transition{from_color:[1.0, 0.988, 0.4], scale:3.0, to_color:[1.0, 0.98, 0.682]} ~ ~ ~ 0.1 0.1 0.1 0 3 force
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.hit
+    execute as @s[scores={wasd.temp=20..}] run block{
+        summon lightning_bolt
+        scoreboard players reset @s wasd.temp
+        }
+    execute as @s[tag=wasd.hit] run block{
+        particle end_rod ~ ~1 ~ 0.1 0.1 0.1 0.1 50 force
+        summon lightning_bolt
+        kill @s
+    }
+
+}
+function electric{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=100..}]
+    particle dust{color:[0.404, 1.0, 0.969], scale:0.03} ~ ~ ~ 0.2 0.2 0.2 0.03 5 force
+    tp @s ^ ^ ^0.5
+    particle dust_color_transition{from_color:[0.404, 0.882, 1.0], scale:3.0, to_color:[0.455, 0.671, 0.992]} ~ ~ ~ 0.0 0.0 0.0 0 1 force
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.hit
+    execute as @s[scores={wasd.timer=5..}] run block{
+        execute positioned ~ ~1.5 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1.2,tag=!wasd.electrical_stunned] run tag @s add wasd.hit_mob
+        execute positioned ~ ~ ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1.2,tag=!wasd.electrical_stunned] run tag @s add wasd.hit_mob
+        execute positioned ~ ~-1.5 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1.2,tag=!wasd.electrical_stunned] run tag @s add wasd.hit_mob
+
+        execute positioned ~ ~1.5 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.2,tag=!wasd.electrical_stunned] run block{
+            tag @s add wasd.lib_entity_tick
+            tag @s add wasd.affects
+            tag @s add wasd.electrical_stunned
+            damage @s 3 wasd.lib:electric
+            playsound entity.firework_rocket.large_blast_far player @a ~ ~ ~ 1 0
+            playsound entity.firework_rocket.large_blast_far player @a ~ ~ ~ 1 0.3
+            playsound entity.firework_rocket.large_blast_far player @a ~ ~ ~ 1 0.6
+
+        }
+        execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..1.2,tag=!wasd.electrical_stunned] run block{
+            tag @s add wasd.lib_entity_tick
+            tag @s add wasd.affects
+            tag @s add wasd.electrical_stunned
+            damage @s 3 wasd.lib:electric
+            playsound entity.firework_rocket.large_blast_far player @a ~ ~ ~ 1 0
+            playsound entity.firework_rocket.large_blast_far player @a ~ ~ ~ 1 0.3
+            playsound entity.firework_rocket.large_blast_far player @a ~ ~ ~ 1 0.6
+
+        }
+        execute positioned ~ ~-1.5 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.2,tag=!wasd.electrical_stunned] run block{
+            tag @s add wasd.lib_entity_tick
+            tag @s add wasd.affects
+            tag @s add wasd.electrical_stunned
+            damage @s 3 wasd.lib:electric
+            playsound entity.firework_rocket.large_blast_far player @a ~ ~ ~ 1 0
+            playsound entity.firework_rocket.large_blast_far player @a ~ ~ ~ 1 0.3
+            playsound entity.firework_rocket.large_blast_far player @a ~ ~ ~ 1 0.6
+
+        }
+
+        execute as @s[tag=wasd.hit_mob] run block{
+            tp @s ~ ~ ~ facing entity @e[type=#wasd.tags:mobs_player,sort=nearest,limit=1,tag=!wasd.electrical_stunned,distance=2..10] eyes
+            tag @s remove wasd.hit_mob
+            scoreboard players add @s wasd.temp 1
+            execute if score @s wasd.temp matches 5.. run tag @s add wasd.hit
+        }
+
+        }
+    execute as @s[tag=wasd.hit] run block{
+        particle end_rod ~ ~ ~ 0.1 0.1 0.1 0.15 100 force
+        playsound minecraft:entity.lightning_bolt.thunder player @a ~ ~ ~ 1 2
+        kill @s
+    }
+}
+
+function lightning_rod{
+    execute unless block ^ ^ ^0.5 #wasd.tags:nonsolid run summon marker ~ ~ ~ {Tags:["wasd.lib_entity_tick","wasd.ability","wasd.lightning_rod_location"]}
+    kill @s
+}
+
+function lightning_rod_location{
+    scoreboard players add @s wasd.timer 1
+    scoreboard players add @s wasd.variables 1
+    execute as @s[scores={wasd.variables=1}] store result score @s wasd.rng run random value 2..7 
+    execute if score @s wasd.variables >= @s wasd.rng run block{
+        scoreboard players reset @s wasd.variables
+        execute store result entity @s Rotation[0] float 1 run random value 1..360
+        execute store result score @s wasd.rng run random value 1..10
+        REPEAT(1,10) as i{
+            execute at @s[scores={wasd.rng=<%i+1%>}] positioned ^ ^ ^<%i+1%> positioned over motion_blocking_no_leaves run summon minecraft:lightning_bolt
+        }
+    }
+    kill @s[scores={wasd.timer=100..}]
+}
+
+
+function air{
+    scoreboard players add @s wasd.timer 1
+    particle dust_color_transition{from_color:[0.51, 0.914, 0.988], scale:3.0, to_color:[0.918, 0.996, 1.0]} ~ ~ ~ 0.0 0.0 0.0 0 1 force
+    execute if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^ ^0.25
+    execute if block ~ ~ ~ #wasd.tags:nonsolid if block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^-1 ^0.25
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tp @s ^ ^1 ^0.25
+
+    execute if block ~ ~-2 ~ #wasd.tags:nonsolid run kill @s
+    execute unless block ~ ~1 ~ #wasd.tags:nonsolid run kill @s
+    scoreboard players add @s wasd.temp 1
+    execute as @s[scores={wasd.temp=20..}] run block{
+        summon area_effect_cloud ~ ~ ~ {Tags:["wasd.lib_entity_tick","wasd.ability","wasd.air_location"],Particle:{type:"dust",color:[0.941,0.988,1.000],scale:1},Radius:1f,RadiusPerTick:0.1f,Duration:30,potion_contents:{custom_effects:[{id:"minecraft:levitation",amplifier:30,duration:10}]}}
+        scoreboard players reset @s wasd.temp
+    }
+    kill @s[scores={wasd.timer=140..}]
+}
+function air_location{
+    execute rotated 0 0 run function wasd.lib:detection/horizontal/rotated/5x5
+    execute as @e[tag=wasd.location,sort=random,limit=3] at @s run particle minecraft:poof ~ ~ ~ 0 1 0 1 0
+    kill @e[tag=wasd.location]
+}
+function wind{
+    particle poof ~ ~ ~ 0.1 0.1 0.1 0.03 3 force
+    particle dust_color_transition{from_color:[0.722, 0.722, 0.722], scale:2.0, to_color:[1.0, 1.0, 1.0]} ~ ~ ~ 0.0 0.0 0.0 0 1 force
+    execute unless entity @s[tag=wasd.wait] run block{
+
+        scoreboard players add @s wasd.timer 1
+        kill @s[scores={wasd.timer=200..}]
+        tp @s ^ ^ ^0.7 ~ ~0.2
+        execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.hit
+        execute as @s[scores={wasd.timer=5..}] run block{
+            execute positioned ~ ~1.5 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1.2] run tag @s add wasd.hit
+            execute positioned ~ ~ ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1.2] run tag @s add wasd.hit
+            execute positioned ~ ~-1.5 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1.2] run tag @s add wasd.hit
+
+            execute positioned ~ ~1.5 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.2] run block{
+                execute as @s[type=#wasd.tags:mobs] run damage @s 4 wasd.lib:wind
+                execute as @s[type=player] run damage @s 6 wasd.lib:wind
+                execute rotated as @e[tag=wasd.wind,sort=nearest,limit=1] rotated ~ ~-30 positioned ^ ^ ^20 run function wasd.lib:math/apply_motion
+            }
+            execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..1.2] run block{
+                execute as @s[type=#wasd.tags:mobs] run damage @s 4 wasd.lib:wind
+                execute as @s[type=player] run damage @s 6 wasd.lib:wind
+                execute rotated as @e[tag=wasd.wind,sort=nearest,limit=1] rotated ~ ~-30 positioned ^ ^ ^20 run function wasd.lib:math/apply_motion
+            }
+            execute positioned ~ ~-1.5 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.2] run block{
+                execute as @s[type=#wasd.tags:mobs] run damage @s 4 wasd.lib:wind
+                execute as @s[type=player] run damage @s 6 wasd.lib:wind
+                execute rotated as @e[tag=wasd.wind,sort=nearest,limit=1] rotated ~ ~-30 positioned ^ ^ ^20 run function wasd.lib:math/apply_motion
+            }
+
+            }
+        execute as @s[tag=wasd.hit] run block{
+            playsound minecraft:entity.generic.explode player @a ~ ~ ~ 0.5 2
+            particle explosion ~ ~.5 ~ 0.5 0.5 0.5 0 5
+            kill @s
+        }
+    }
+}
+function hurricane{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.temp=15}]
+    execute as @s[scores={wasd.timer=7..}] run block{
+        scoreboard players add @s wasd.temp 1
+        tag @e[tag=wasd.wind,tag=wasd.wait,sort=random,limit=1,distance=..10] remove wasd.wait
+        scoreboard players reset @s wasd.timer
+    }
+}
+function gust{
+    particle poof ~ ~ ~ 0.1 0.1 0.1 0.03 3 force
+    particle dust_color_transition{from_color:[0.722, 0.722, 0.722], scale:3.0, to_color:[1.0, 1.0, 1.0]} ~ ~ ~ 0.5 0.5 0.5 0 3 force
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run kill @s
+        scoreboard players add @s wasd.timer 1
+        execute as @s[scores={wasd.timer=100..}] run block{
+            kill @s
+            effect clear @a[distance=..4] levitation
+        }
+        tp @s ^ ^ ^0.4 ~ ~-0.1
+        execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.hit
+        execute as @s[scores={wasd.timer=5..}] run block{
+
+            execute positioned ~ ~1.5 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.2] run tp @s ~ ~ ~
+            execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..1.2] run tp @s ~ ~ ~
+            execute positioned ~ ~-1.5 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.2] run tp @s ~ ~ ~
+
+            execute positioned ~ ~1.5 ~ as @a[distance=..1.2] run effect give @s levitation 1 0 true
+            execute positioned ~ ~ ~ as @a[distance=..1.2] run effect give @s levitation 1 0 true
+            execute positioned ~ ~-1.5 ~ as @a[distance=..1.2] run effect give @s levitation 1 0 true
+
+            }
+
+}
+function rock{
+    scoreboard players add @s wasd.timer 1
+    execute as @s[scores={wasd.timer=1}] run tp @s ~ ~7 ~
+    execute as @s[scores={wasd.timer=1..20}] run block{
+        execute as @s[scores={wasd.timer=1..10}] align y positioned ~ ~-4 ~ run particle block{block_state:{Name:"minecraft:dirt"}} ~ ~ ~ 0.1 0.1 0.1 0 10 normal
+        execute as @s[scores={wasd.timer=10}] run playsound block.rooted_dirt.break player @a ~ ~ ~ 1 0.5
+        execute as @s[scores={wasd.timer=20}] run data merge entity @s {teleport_duration:1}
+    }
+    execute as @s[scores={wasd.timer=250..}] run tag @s add wasd.remove
+    execute as @s[scores={wasd.timer=25..}] run block{
+        tp @s ^ ^ ^0.5 ~ ~0.1
+        particle dust_color_transition{from_color:[0.267, 0.267, 0.267], scale:3.0, to_color:[0.592, 0.592, 0.592]} ^ ^ ^-1 0.0 0.0 0.0 0 1 force
+        execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.remove
+        scoreboard players add @s wasd.temp 1
+        execute as @s[scores={wasd.temp=3..}] run block{
+            execute positioned ~ ~1.5 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1.2] run tag @s add wasd.remove
+            execute positioned ~ ~ ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1.2] run tag @s add wasd.remove
+            execute positioned ~ ~-1.5 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1.2] run tag @s add wasd.remove
+
+            execute positioned ~ ~1.5 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5,tag=!wasd.already_hit] at @s run block{
+                tag @s add wasd.already_hit
+                damage @s 12 wasd.lib:reverse_fall_damage
+                playsound minecraft:block.tuff.break player @a ~ ~ ~ 1 0
+            }
+            execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5,tag=!wasd.already_hit] at @s run block{
+                tag @s add wasd.already_hit
+                damage @s 12 wasd.lib:reverse_fall_damage
+                playsound minecraft:block.tuff.break player @a ~ ~ ~ 1 0
+            }
+            execute positioned ~ ~-1.5 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5,tag=!wasd.already_hit] at @s run block{
+                tag @s add wasd.already_hit
+                damage @s 12 wasd.lib:reverse_fall_damage
+                playsound minecraft:block.tuff.break player @a ~ ~ ~ 1 0
+            }
+            tag @e[type=#wasd.tags:mobs_player,distance=..5,tag=wasd.already_hit] remove wasd.already_hit
+            scoreboard players reset @s wasd.temp
+        }
+    }
+    execute as @s[tag=wasd.remove] run block{
+        kill @s
+        playsound block.deepslate.break player @a ~ ~ ~ 1 0
+        playsound block.deepslate.break player @a ~ ~ ~ 1 0
+        playsound block.deepslate.break player @a ~ ~ ~ 1 0
+        particle falling_dust{block_state:{Name:"minecraft:deepslate"}} ~ ~1 ~ 0.5 0.5 0.5 0 50 normal
+        summon minecraft:creeper ~ ~-1000 ~ {Invulnerable:1b,Tags:["wasd.rock_explode"],Silent:1b,ExplosionRadius:2b,Fuse:0,ignited:1b,CustomName:{"text":"Rock Wand"}}
+        execute positioned ~ ~-1000 ~ as @e[type=creeper,tag=wasd.rock_explode,sort=nearest,limit=1] run tp @s ~ ~1001 ~
+    }
+
+}
+
+function boulder{
+    scoreboard players add @s wasd.timer 1
+    execute as @s[scores={wasd.timer=1}] run tp @s ~ ~10 ~
+
+
+
+    execute as @s[scores={wasd.timer=1..40}] run block{
+        execute as @s[scores={wasd.timer=1..20}] align y positioned ~ ~-5 ~ run particle block{block_state:{Name:"minecraft:dirt"}} ~ ~ ~ 0.4 0 0.4 0 25 normal
+        execute as @s[scores={wasd.timer=1}] run playsound block.rooted_dirt.break player @a ~ ~ ~ 1 0
+        execute as @s[scores={wasd.timer=4}] run playsound block.rooted_dirt.break player @a ~ ~ ~ 1 0
+        execute as @s[scores={wasd.timer=8}] run playsound block.rooted_dirt.break player @a ~ ~ ~ 1 0
+        execute as @s[scores={wasd.timer=12}] run playsound block.rooted_dirt.break player @a ~ ~ ~ 1 0
+        execute as @s[scores={wasd.timer=16}] run playsound block.rooted_dirt.break player @a ~ ~ ~ 1 0
+        execute as @s[scores={wasd.timer=20}] run playsound block.rooted_dirt.break player @a ~ ~ ~ 1 0
+        execute as @s[scores={wasd.timer=40}] run data merge entity @s {teleport_duration:1}
+    }
+    execute as @s[scores={wasd.timer=500..}] run tag @s add wasd.remove
+    execute as @s[scores={wasd.timer=50..}] run block{
+        tp @s ^ ^ ^0.4 ~ ~0.1
+        particle dust_color_transition{from_color:[0.173, 0.173, 0.173], scale:3.0, to_color:[0.592, 0.592, 0.592]} ^ ^ ^-1 0.3 0.3 0.3 0 3 force
+        execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.remove
+        scoreboard players add @s wasd.temp 1
+        execute as @s[scores={wasd.temp=3..}] run block{
+            execute positioned ~ ~1.5 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..2.5] run tag @s add wasd.remove
+            execute positioned ~ ~ ~ if entity @e[type=#wasd.tags:mobs_player,distance=..2.5] run tag @s add wasd.remove
+            execute positioned ~ ~-1.5 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..2.5] run tag @s add wasd.remove
+
+            execute positioned ~ ~2.5 ~ as @e[type=#wasd.tags:mobs_player,distance=..2.5,tag=!wasd.already_hit] at @s run block{
+                tag @s add wasd.already_hit
+                damage @s 16 wasd.lib:reverse_fall_damage
+                playsound minecraft:block.tuff.break player @a ~ ~ ~ 1 0
+            }
+            execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..2.5,tag=!wasd.already_hit] at @s run block{
+                tag @s add wasd.already_hit
+                damage @s 16 wasd.lib:reverse_fall_damage
+                playsound minecraft:block.tuff.break player @a ~ ~ ~ 1 0
+            }
+            execute positioned ~ ~-2.5 ~ as @e[type=#wasd.tags:mobs_player,distance=..2.5,tag=!wasd.already_hit] at @s run block{
+                tag @s add wasd.already_hit
+                damage @s 16 wasd.lib:reverse_fall_damage
+                playsound minecraft:block.tuff.break player @a ~ ~ ~ 1 0
+            }
+            tag @e[type=#wasd.tags:mobs_player,distance=..5,tag=wasd.already_hit] remove wasd.already_hit
+            scoreboard players reset @s wasd.temp
+        }
+    }
+    execute as @s[tag=wasd.remove] run block{
+        kill @s
+        playsound block.deepslate.break player @a ~ ~ ~ 1 0
+        playsound block.deepslate.break player @a ~ ~ ~ 1 0
+        playsound block.deepslate.break player @a ~ ~ ~ 1 0
+        particle falling_dust{block_state:{Name:"minecraft:deepslate"}} ~ ~1 ~ 0.5 0.5 0.5 0 50 normal
+        summon minecraft:creeper ~ ~-1000 ~ {Invulnerable:1b,Tags:["wasd.boulder_explode"],Silent:1b,ExplosionRadius:5b,Fuse:0,ignited:1b,CustomName:{"text":"Boulder Wand"}}
+        execute positioned ~ ~-1000 ~ as @e[type=creeper,tag=wasd.boulder_explode,sort=nearest,limit=1] run tp @s ~ ~1001 ~
+    }
+}
+
+function earth{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=30..}]
+    execute as @s[scores={wasd.timer=5..}] if entity @e[type=#wasd.tags:mobs_player,distance=..1.5] run block{
+        execute as @e[type=#wasd.tags:mobs_player,distance=..1.5] run block{
+            damage @s 4 wasd.lib:reverse_fall_damage
+            effect give @s levitation 1 80 true
+            tag @s add wasd.lib_entity_tick
+            tag @s add wasd.ability
+            tag @s add wasd.remove_levitation
+            summon item_display ~ ~-1.5 ~ {item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.earth_spike"],teleport_duration:3,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[2.0f,2.0f,2.0f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/earth_spike"}}}
+        }
+        kill @s
+    }
+    particle dust_color_transition{from_color:[0.314, 0.176, 0.0], scale:2.0, to_color:[0.412, 0.302, 0.137]} ~ ~ ~ 0.2 0.2 0.2 0 2 force
+    particle block{block_state:{Name:"minecraft:dirt"}} ~ ~ ~ 0.2 0 0.2 0 3 force
+    particle falling_dust{block_state:{Name:"minecraft:dirt"}} ~ ~ ~ 0.2 0 0.2 0 3 force
+    execute if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^ ^1
+    execute if block ~ ~ ~ #wasd.tags:nonsolid if block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^-1 ^1
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tp @s ^ ^1 ^1
+
+    execute if block ~ ~-2 ~ #wasd.tags:nonsolid run kill @s
+    execute unless block ~ ~1 ~ #wasd.tags:nonsolid run kill @s
+}
+function earth_spike{
+    scoreboard players add @s wasd.timer 1
+    tp @s[scores={wasd.timer=1}] ~ ~2.4 ~
+
+    execute as @s[scores={wasd.timer=30..}] run block{
+        kill @s
+        }
+}
+function ore{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=50..}]
+    particle dust_color_transition{from_color:[0.369, 0.369, 0.369], scale:3.0, to_color:[0.212, 0.157, 0.122]} ~ ~ ~ 0.0 0.0 0.0 0 1 force
+    execute if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^ ^0.5
+    execute if block ~ ~ ~ #wasd.tags:nonsolid if block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^-1 ^0.5
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tp @s ^ ^1 ^0.5
+    execute if block ~ ~-2 ~ #wasd.tags:nonsolid run kill @s
+    execute unless block ~ ~1 ~ #wasd.tags:nonsolid run kill @s
+    scoreboard players add @s wasd.temp 1
+    execute as @s[scores={wasd.timer=6..,wasd.temp=2..}] run block{
+        summon item_display ~ ~-3 ~ {item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.iron_spikes"],teleport_duration:40,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.6f,0.6f,0.6f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/iron_ore_spikes"}}}
+        scoreboard players reset @s wasd.temp
+        playsound block.deepslate.break player @a ~ ~ ~ 1 0
+    }
+}
+function iron_spike{
+    scoreboard players add @s wasd.timer 1
+    execute as @s[scores={wasd.timer=1}] as @e[tag=wasd.iron_spike,tag=!wasd.given_rotation] at @s run block{
+        tag @s add wasd.given_rotation
+        execute on passengers positioned ~ ~7 ~ run block{
+            rotate @s facing entity @n[type=marker,tag=wasd.steel_spike_target] feet
+            execute at @s run rotate @s ~ ~15
+            execute store result score @s wasd.x_angle run data get entity @s Rotation[0]
+            execute store result score @s wasd.rng run random value -15..15
+            execute store result entity @s Rotation[0] float 1 run scoreboard players operation @s wasd.x_angle += @s wasd.rng
+            execute store result score @s wasd.y_angle run data get entity @s Rotation[1]
+            execute store result score @s wasd.rng run random value -7..7
+            execute store result entity @s Rotation[1] float 1 run scoreboard players operation @s wasd.y_angle += @s wasd.rng
+
+        }
+        execute store result score @s wasd.timer run random value 1..25
+    }
+    #simplify into one teleport, making the particles super easy
+    tp @s[scores={wasd.timer=26}] ~ ~7 ~
+    execute as @s[scores={wasd.timer=26..46}] align y positioned ~ ~-4 ~ run particle block{block_state:{Name:"minecraft:dirt"}} ~ ~ ~ 0 0 0 0 5 normal
+    execute as @s[scores={wasd.timer=35}] run playsound block.rooted_dirt.break player @a ~ ~ ~ 1 0.5
+    execute as @s[scores={wasd.timer=75}] run data merge entity @s {teleport_duration:0}
+
+
+
+    execute as @s[scores={wasd.timer=250..}] run tag @s add wasd.remove
+    execute as @s[scores={wasd.timer=85}] run block{
+        #start flying in direction
+        data modify entity @s Rotation set from entity @e[tag=wasd.spike_rotation_storage,distance=..0.1,limit=1,sort=nearest] Rotation
+        data merge entity @s {teleport_duration:1,start_interpolation:-1,transformation:[0.800f, 0.000f, 0.000f,0.000f,0.000f, 0.000f, -0.800f,0.000f,0.000f, 0.800f, 0.000f,0.000f,0.000f, 0.000f, 0.000f,1.000f]}
+        kill @e[tag=wasd.spike_rotation_storage,distance=..0.1,limit=1,sort=nearest]
+    }
+    execute as @s[scores={wasd.timer=101..}] run block{
+        tp @s ^ ^ ^0.5 ~ ~0.1
+        particle dust_color_transition{from_color:[0.475, 0.475, 0.475], scale:2.0, to_color:[0.78, 0.78, 0.78]} ^ ^ ^-1 0.0 0.0 0.0 0 1 force
+        execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.remove
+        scoreboard players add @s wasd.temp 1
+        execute as @s[scores={wasd.temp=3..}] run block{
+            execute positioned ~ ~1.5 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5,tag=!wasd.already_hit] at @s run block{
+                tag @s add wasd.already_hit
+                damage @s 10 minecraft:player_attack by @n[tag=wasd.iron_spike]
+                playsound minecraft:block.tuff.break player @a ~ ~ ~ 1 0
+            }
+            execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5,tag=!wasd.already_hit] at @s run block{
+                tag @s add wasd.already_hit
+                damage @s 10 minecraft:player_attack by @n[tag=wasd.iron_spike]
+                playsound minecraft:block.tuff.break player @a ~ ~ ~ 1 0
+            }
+            execute positioned ~ ~-1.5 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5,tag=!wasd.already_hit] at @s run block{
+                tag @s add wasd.already_hit
+                damage @s 10 minecraft:player_attack by @n[tag=wasd.iron_spike]
+                playsound minecraft:block.tuff.break player @a ~ ~ ~ 1 0
+            }
+            tag @e[type=#wasd.tags:mobs_player,distance=..5,tag=wasd.already_hit] remove wasd.already_hit
+            scoreboard players reset @s wasd.temp
+        }
+    }
+    execute as @s[tag=wasd.remove] run block{
+        kill @s
+        playsound block.lantern.break player @a ~ ~ ~ 1 0.5
+        particle falling_dust{block_state:{Name:"minecraft:deepslate"}} ~ ~1 ~ 0.5 0.5 0.5 0 20 normal
+    }
+
+}
+
+function steel_target{
+    summon marker ~ ~ ~ {Tags:["wasd.steel_spike_target","wasd.lib_entity_tick","wasd.ability"]}
+    kill @s
+}
+function cage{
+
+}
+function poison{
+
+}
+function dripstone{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=100..}]
+    particle falling_dust{block_state:{Name:"minecraft:dripstone_block"}} ~ ~0.1 ~ 0.2 0 0.2 1 2 normal
+    execute if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^ ^0.15
+    execute if block ~ ~ ~ #wasd.tags:nonsolid if block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^-1 ^0.15
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tp @s ^ ^1 ^0.15
+
+    execute if block ~ ~-2 ~ #wasd.tags:nonsolid run kill @s
+    execute unless block ~ ~1 ~ #wasd.tags:nonsolid run kill @s
+
+    scoreboard players add @s wasd.temp 1
+    execute as @s[scores={wasd.temp=7..}] run block{
+        scoreboard players reset @s wasd.temp
+        summon armor_stand ~ ~6 ~ {Invulnerable:1b,Invisible:1b,Tags:["wasd.lib_entity_tick","wasd.fake_dripstone","wasd.ability"],DisabledSlots:4144959,equipment:{head:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/dripstone"}}}}
+
+    }
+
+
+}
+function anvil{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=150..}]
+    particle large_smoke ~ ~ ~ 0.1 0.1 0.1 0.03 2 force
+    tp @s ^ ^ ^0.2 ~ ~0.1
+    particle dust_color_transition{from_color:[0.0, 0.0, 0.0], scale:2.0, to_color:[0.392, 0.392, 0.392]}
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run kill @s
+    scoreboard players add @s wasd.temp 1
+    execute as @s[scores={wasd.temp=7..}] run block{
+        scoreboard players reset @s wasd.temp
+        summon armor_stand ~ ~-0.5 ~ {Invulnerable:1b,Invisible:1b,Tags:["wasd.lib_entity_tick","wasd.fake_anvil","wasd.ability"],DisabledSlots:4144959,equipment:{head:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/anvil"}}}}
+    }
+
+}
+function water{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=100..}]
+    tp @s ^ ^ ^0.7 ~ ~0.2
+    particle dust_color_transition{from_color:[0.008, 0.153, 0.973], scale:3.0, to_color:[0.0, 0.682, 1.0]} ~ ~ ~ 0.0 0.0 0.0 0 1 force
+    particle dripping_water ~ ~ ~ 0.2 0.2 0.2 0 10 force
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.hit
+    execute as @s[scores={wasd.timer=10..}] run block{
+        execute positioned ~ ~1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        execute positioned ~ ~ ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        execute positioned ~ ~-1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        }
+    execute as @s[tag=wasd.hit] run block{
+        playsound minecraft:entity.generic.explode player @a ~ ~ ~ 0.5 0.7
+        playsound item.bucket.empty player @a ~ ~ ~ 1 0.2
+        playsound item.bucket.empty player @a ~ ~ ~ 1 0.2
+        particle explosion
+        particle falling_dust{block_state:{Name:"minecraft:blue_wool"}} ~ ~2 ~ 1.5 1.5 1.5 0 100
+        particle falling_water ~ ~2 ~ 1.5 1.5 1.5 0 100
+        particle dust_color_transition{from_color:[0.008, 0.153, 0.973], scale:3.0, to_color:[0.0, 0.682, 1.0]} ~ ~2 ~ 1.0 1.0 1.0 0 20 force
+        fill ~1 ~1 ~1 ~-1 ~ ~-1 water[level=1] keep
+        execute positioned ~ ~1.5 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5] run damage @s 6 minecraft:player_attack by @n[tag=wasd.water]
+        execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5] run damage @s 6 minecraft:player_attack by @n[tag=wasd.water]
+        execute positioned ~ ~-1.5 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5] run damage @s 6 minecraft:player_attack by @n[tag=wasd.water]
+        kill @s
+    }
+
+}
+function bubble{
+    scoreboard players add @s wasd.timer 1
+    execute as @s[scores={wasd.timer=100..}] run block{
+        playsound entity.firework_rocket.blast player @a ~ ~ ~ 1 2
+        playsound entity.firework_rocket.blast player @a ~ ~ ~ 1 2
+        playsound entity.firework_rocket.blast player @a ~ ~ ~ 1 2
+        particle falling_dust{block_state:{Name:"minecraft:blue_wool"}} ^ ^ ^1 0.5 0.5 0.5 0 50
+        kill @s
+    }
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run scoreboard players add @s wasd.timer 100
+    tp @s ^ ^ ^0.2 ~ ~0.15
+    particle dust_color_transition{from_color:[0.51, 0.914, 0.988], scale:3.0, to_color:[0.918, 0.996, 1.0]} ^ ^ ^-1 0.2 0.2 0.2 0 1 force
+    execute as @s[scores={wasd.timer=15..}] run block{
+        execute positioned ~ ~1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1.5] run tag @s add wasd.hit
+        execute positioned ~ ~ ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1.5] run tag @s add wasd.hit
+        execute positioned ~ ~-1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1.5] run tag @s add wasd.hit
+
+        execute positioned ~ ~1 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5,tag=!wasd.in_bubble] at @s run block{
+            tag @s add wasd.in_bubble
+            summon item_display ~ ~ ~ {item_display:"head",Tags:["wasd.lib_entity_tick","wasd.ability","wasd.bubble_big"],teleport_duration:1,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1f,0f],scale:[2.0f,2.0f,2.0f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/bubble"}}}
+        }
+        execute positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5,tag=!wasd.in_bubble] at @s run block{
+            tag @s add wasd.in_bubble
+            summon item_display ~ ~ ~ {item_display:"head",Tags:["wasd.lib_entity_tick","wasd.ability","wasd.bubble_big"],teleport_duration:1,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1f,0f],scale:[2.0f,2.0f,2.0f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/bubble"}}}
+        }
+        execute positioned ~ ~-1 ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5,tag=!wasd.in_bubble] at @s run block{
+            tag @s add wasd.in_bubble
+            summon item_display ~ ~ ~ {item_display:"head",Tags:["wasd.lib_entity_tick","wasd.ability","wasd.bubble_big"],teleport_duration:1,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1f,0f],scale:[2.0f,2.0f,2.0f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/bubble"}}}
+        }
+    }
+    execute as @s[tag=wasd.hit] run kill @s
+}
+function bubble_big{
+    scoreboard players add @s wasd.timer 1
+    execute as @s[scores={wasd.timer=160..}] run block{
+        playsound entity.firework_rocket.blast player @a ~ ~ ~ 2.5 2
+        playsound entity.firework_rocket.blast player @a ~ ~ ~ 2.5 2
+        playsound entity.firework_rocket.blast player @a ~ ~ ~ 2.5 2
+        particle falling_dust{block_state:{Name:"minecraft:blue_wool"}} ^ ^ ^1 1 1 1 0 100
+        kill @s
+        effect clear @a[tag=wasd.in_bubble,distance=..0.5] levitation
+        tag @e[tag=wasd.in_bubble,distance=..0.5] remove wasd.in_bubble
+    }
+    execute if entity @e[type=#wasd.tags:mobs_player,distance=..0.2,nbt={HurtTime:10s}] run scoreboard players add @s wasd.timer 160
+    execute unless block ~ ~2.5 ~ #wasd.tags:nonsolid run scoreboard players add @s wasd.timer 160
+    execute positioned ~ ~ ~ as @e[tag=wasd.in_bubble,type=#wasd.tags:mobs_player,distance=..2] run tp @s ~ ~ ~
+    execute positioned ~ ~ ~ as @a[tag=wasd.in_bubble,distance=..2] run effect give @s levitation 1 0 true
+    tp @s ~ ~0.07 ~
+
+}
+
+function kfc{
+    scoreboard players add @s wasd.timer 1
+    particle flame ~ ~0.3 ~ 0.1 0.1 0.1 0.02 3 force
+    particle smoke ~ ~0.3 ~ 0.1 0.1 0.1 0.02 3 force
+    execute unless block ~1 ~ ~ #wasd.tags:nonsolid run tag @s add wasd.explode
+    execute unless block ~-1 ~ ~ #wasd.tags:nonsolid run tag @s add wasd.explode
+    execute unless block ~ ~1 ~ #wasd.tags:nonsolid run tag @s add wasd.explode
+    execute unless block ~ ~-1 ~ #wasd.tags:nonsolid run tag @s add wasd.explode
+    execute unless block ~ ~ ~1 #wasd.tags:nonsolid run tag @s add wasd.explode
+    execute unless block ~ ~ ~-1 #wasd.tags:nonsolid run tag @s add wasd.explode
+    execute if block ~ ~ ~ water run tag @s add wasd.explode
+    execute if entity @e[type=#wasd.tags:mobs_player,distance=0.01..1.5,scores={wasd.timer=3..}] run tag @s add wasd.explode
+    execute as @s[tag=wasd.explode] run block{
+        kill @s
+        summon fireball ~ ~ ~ {ExplosionPower:2b,Motion:[0.0,-5.0,0.0],Item:{id:"minecraft:gold_nugget",count:1,components:{"minecraft:item_model":"wasd:blank"}}}
+        particle flame ~ ~ ~ 0.1 0.1 0.1 0.15 40 force
+        particle smoke ~ ~ ~ 0.1 0.1 0.1 0.15 40 force
+        particle campfire_cosy_smoke ~ ~ ~ 0.1 0.1 0.1 0.15 40 force
+    }
+}
+function healing_aura{
+    scoreboard players add @s wasd.timer 1
+    scoreboard players add @s wasd.temp 1
+
+    execute as @s[scores={wasd.timer=40..}] run kill @s
+    tp @s ~ ~ ~ ~5 ~
+    particle dust_color_transition{from_color:[1.0, 0.431, 0.431], scale:2.0, to_color:[1.0, 0.0, 0.0]} ^ ^0.1 ^7
+    particle dust_color_transition{from_color:[1.0, 0.431, 0.431], scale:2.0, to_color:[1.0, 0.0, 0.0]} ^7 ^0.1 ^
+    particle dust_color_transition{from_color:[1.0, 0.431, 0.431], scale:2.0, to_color:[1.0, 0.0, 0.0]} ^-7 ^0.1 ^
+    particle dust_color_transition{from_color:[1.0, 0.431, 0.431], scale:2.0, to_color:[1.0, 0.0, 0.0]} ^ ^0.1 ^-7
+    execute as @a[distance=..2] unless predicate wasd.lib:active_effects/regeneration run effect give @s minecraft:regeneration 2 2 true
+
+    REPEAT(1, 6) as i{
+        execute positioned ^ ^ ^<%i+1%> as @a[distance=..2] unless predicate wasd.lib:active_effects/regeneration run effect give @s minecraft:regeneration 2 2 true
+        execute positioned ^ ^ ^-<%i+1%> as @a[distance=..2] unless predicate wasd.lib:active_effects/regeneration run effect give @s minecraft:regeneration 2 2 true
+        execute positioned ^<%i+1%> ^ ^ as @a[distance=..2] unless predicate wasd.lib:active_effects/regeneration run effect give @s minecraft:regeneration 2 2 true
+        execute positioned ^-<%i+1%> ^ ^ as @a[distance=..2] unless predicate wasd.lib:active_effects/regeneration run effect give @s minecraft:regeneration 2 2 true
+    }  
+
+    execute as @s[scores={wasd.temp=5}] run block{
+            REPEAT(1, 16) as i{
+                execute rotated ~<%i*20%> ~ run particle minecraft:heart ^ ^0.1 ^1 0 0 0 3 1
+            }
+    }
+    execute as @s[scores={wasd.temp=10}] run block{
+            REPEAT(1, 24) as i{
+                execute rotated ~<%i*15%> ~ run particle minecraft:heart ^ ^0.1 ^2 0 0 0 3 1
+            }
+    }
+    execute as @s[scores={wasd.temp=15}] run block{
+            REPEAT(1, 36) as i{
+                execute rotated ~<%i*10%> ~ run particle minecraft:heart ^ ^0.1 ^3 0 0 0 3 1
+            }
+    }
+    execute as @s[scores={wasd.temp=20}] run block{
+            REPEAT(1, 45) as i{
+                execute rotated ~<%i*8%> ~ run particle minecraft:heart ^ ^0.1 ^4 0 0 0 3 1
+            }
+    }
+    execute as @s[scores={wasd.temp=25}] run block{
+            REPEAT(1, 60) as i{
+                execute rotated ~<%i*6%> ~ run particle minecraft:heart ^ ^0.1 ^5 0 0 0 3 1
+            }
+    }
+    execute as @s[scores={wasd.temp=30}] run block{
+            REPEAT(1, 72) as i{
+                execute rotated ~<%i*5%> ~ run particle minecraft:heart ^ ^0.1 ^6 0 0 0 3 1
+            }
+    }
+    execute as @s[scores={wasd.temp=35}] run block{
+            REPEAT(1, 90) as i{
+                execute rotated ~<%i*4%> ~ run particle minecraft:heart ^ ^0.1 ^7 0 0 0 3 1
+            }
+    }
+}
+
+function growing_aura{
+    scoreboard players add @s wasd.timer 1
+    scoreboard players add @s wasd.temp 1
+    scoreboard players add @s wasd.temp2 1
+    
+    execute as @s[scores={wasd.timer=81..}] run kill @s
+    tp @s ~ ~ ~ ~5 ~
+    particle dust_color_transition{from_color:[0.0, 1.0, 0.051], scale:2.0, to_color:[0.0, 0.596, 0.031]} ^ ^0.1 ^4
+    particle dust_color_transition{from_color:[0.0, 1.0, 0.051], scale:2.0, to_color:[0.0, 0.596, 0.031]} ^ ^0.1 ^-4
+    particle dust_color_transition{from_color:[0.0, 1.0, 0.051], scale:2.0, to_color:[0.0, 0.596, 0.031]} ^4 ^0.1 ^
+    particle dust_color_transition{from_color:[0.0, 1.0, 0.051], scale:2.0, to_color:[0.0, 0.596, 0.031]} ^-4 ^0.1 ^
+
+    execute as @s[scores={wasd.temp2=10..}] run block{
+        execute positioned ~ ~1 ~ run function wasd.lib:crops/grow/5x5
+        playsound block.crop.break player @a ~ ~ ~ 0.1 1
+        scoreboard players reset @s wasd.temp2
+    }
+
+    execute as @s[scores={wasd.temp=10}] run block{
+            REPEAT(1, 16) as i{
+                execute rotated ~<%i*20%> ~ run particle minecraft:wax_off ^ ^0.1 ^1 0 0 0 3 1
+            }
+    }
+    execute as @s[scores={wasd.temp=20}] run block{
+            REPEAT(1, 24) as i{
+                execute rotated ~<%i*15%> ~ run particle minecraft:wax_off ^ ^0.1 ^2 0 0 0 3 1
+            }
+    }
+    execute as @s[scores={wasd.temp=30}] run block{
+            REPEAT(1, 36) as i{
+                execute rotated ~<%i*10%> ~ run particle minecraft:wax_off ^ ^0.1 ^3 0 0 0 3 1
+            }
+    }
+    execute as @s[scores={wasd.temp=40}] run block{
+            REPEAT(1, 45) as i{
+                execute rotated ~<%i*8%> ~ run particle minecraft:wax_off ^ ^0.1 ^4 0 0 0 3 1
+            }
+    }
+    scoreboard players reset @s[scores={wasd.temp=40..}] wasd.temp
+
+}
+
+function plant_wand{
+    scoreboard players add @s wasd.timer 1
+    execute as @s[scores={wasd.timer=91..}] run kill @s
+
+    execute as @s[scores={wasd.timer=1}] run block{
+            REPEAT(1, 9) as i{
+                execute rotated ~<%i*40%> ~ positioned ^ ^ ^3 if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid unless block ~ ~-2 ~ #wasd.tags:nonsolid run summon item_display ~ ~-2 ~ {item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.bamboo_spike"],teleport_duration:40,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.6f,0.6f,0.6f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/bamboo_spikes"}}}
+            }
+    }
+    execute as @s[scores={wasd.timer=20}] run block{
+            REPEAT(1, 18) as i{
+                execute rotated ~<%i*20%> ~ positioned ^ ^ ^4 if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid unless block ~ ~-2 ~ #wasd.tags:nonsolid run summon item_display ~ ~-2 ~ {item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.bamboo_spike"],teleport_duration:40,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.6f,0.6f,0.6f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/bamboo_spikes"}}}
+            }
+    }
+    execute as @s[scores={wasd.timer=40}] run block{
+            REPEAT(1, 24) as i{
+                execute rotated ~<%i*15%> ~ positioned ^ ^ ^5 if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid unless block ~ ~-2 ~ #wasd.tags:nonsolid run summon item_display ~ ~-2 ~ {item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.bamboo_spike"],teleport_duration:40,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.6f,0.6f,0.6f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/bamboo_spikes"}}}
+            }
+    }
+    execute as @s[scores={wasd.timer=60}] run block{
+            REPEAT(1, 36) as i{
+                execute rotated ~<%i*10%> ~ positioned ^ ^ ^6.5 if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid unless block ~ ~-2 ~ #wasd.tags:nonsolid run summon item_display ~ ~-2 ~ {item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.bamboo_spike"],teleport_duration:40,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.6f,0.6f,0.6f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/bamboo_spikes"}}}
+            }
+    }
+
+    execute as @s[scores={wasd.timer=80}] run block{
+            REPEAT(1, 40) as i{
+                execute rotated ~<%i*9%> ~ positioned ^ ^ ^8 if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid unless block ~ ~-2 ~ #wasd.tags:nonsolid run summon item_display ~ ~-2 ~ {item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.bamboo_spike"],teleport_duration:40,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.6f,0.6f,0.6f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/bamboo_spikes"}}}
+            }
+    }
+}
+
+function log_wand{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=30..}]
+    execute as @s[scores={wasd.timer=5..}] if entity @e[type=#wasd.tags:mobs_player,distance=..1.5] run block{
+        execute as @e[type=#wasd.tags:mobs_player,distance=..1.5] at @s run block{
+            tag @s add wasd.log_stuck
+            damage @s 3 minecraft:cramming
+            effect give @s slowness 5 100 true
+            effect give @s[type=player] jump_boost 5 130 true
+            effect give @s resistance 5 100 true
+            execute align y positioned ~ ~ ~2 run summon item_display ~ ~-2 ~ {Rotation:[180F,20F],item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.log_spike","wasd.main_log_spike"],teleport_duration:10,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1.5f,1.5f,1.5f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/log_spike"}}}
+            execute align y positioned ~ ~ ~-2 run summon item_display ~ ~-2 ~ {Rotation:[0F,20F],item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.log_spike"],teleport_duration:10,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1.5f,1.5f,1.5f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/log_spike"}}}
+            execute align y positioned ~2 ~ ~ run summon item_display ~ ~-2 ~ {Rotation:[90F,20F],item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.log_spike"],teleport_duration:10,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1.5f,1.5f,1.5f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/log_spike"}}}
+            execute align y positioned ~-2 ~ ~ run summon item_display ~ ~-2 ~ {Rotation:[-90F,20F],item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.log_spike"],teleport_duration:10,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1.5f,1.5f,1.5f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/log_spike"}}}
+        }
+        kill @s
+    }
+    particle dust_color_transition{from_color:[0.314, 0.176, 0.0], scale:2.0, to_color:[0.412, 0.302, 0.137]} ~ ~ ~ 0.2 0.2 0.2 0 2 force
+    particle block{block_state:{Name:"minecraft:oak_log"}} ~ ~ ~ 0.2 0 0.2 0 3 force
+    particle falling_dust{block_state:{Name:"minecraft:oak_log"}} ~ ~ ~ 0.2 0 0.2 0 3 force
+    execute if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^ ^1
+    execute if block ~ ~ ~ #wasd.tags:nonsolid if block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^-1 ^1
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tp @s ^ ^1 ^1
+
+    execute if block ~ ~-2 ~ #wasd.tags:nonsolid run kill @s
+    execute unless block ~ ~1 ~ #wasd.tags:nonsolid run kill @s
+}
+function log_spike{
+    scoreboard players add @s wasd.timer 1
+
+    execute as @s[scores={wasd.timer=1..10}] run playsound block.wood.step player @a ~ ~ ~ 0.5 0.5
+
+    tp @s[scores={wasd.timer=1}] ^ ^2.3 ^
+    execute as @s[tag=wasd.main_log_spike] positioned as @s align y run tp @e[tag=wasd.log_stuck,limit=1,sort=nearest,distance=..5] ~ ~ ~-1.2
+
+    execute as @s[scores={wasd.timer=100..}] run block{
+        execute as @s[tag=wasd.main_log_spike] positioned as @s positioned ~ ~ ~-2 run tag @e[tag=wasd.log_stuck,limit=1,sort=nearest,distance=..5] remove wasd.log_stuck
+        particle block{block_state:{Name:"minecraft:oak_log"}} ~ ~1 ~ 0.3 0.6 0.3 0.1 100 force
+        playsound block.wood.break player @a ~ ~ ~ 1 0.8
+        kill @s
+        }
+}
+
+function portal_projectile{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=30..}]
+    execute as @s[scores={wasd.timer=5..}] if entity @e[type=#wasd.tags:mobs,distance=..1.5] run block{
+        execute as @e[type=#wasd.tags:mobs,distance=..1.5] at @s run block{
+            playsound minecraft:block.portal.trigger player @a ~ ~ ~ 0.5 1
+            tag @s add wasd.portal_pulling
+            effect give @s slowness 5 100 true
+            effect give @s resistance 5 100 true
+            execute align y run summon item_display ~ ~ ~ {item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.circle_portal"],teleport_duration:10,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,1.5f,0f],scale:[1.5f,1.5f,1.5f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/circle_portal"}}}
+        }
+        kill @s
+    }
+    particle dust_color_transition{from_color:[1.0, 0.0, 0.933], scale:2.0, to_color:[0.482, 0.0, 0.369]} ~ ~ ~ 0.2 0.2 0.2 0 2 force
+    particle block{block_state:{Name:"minecraft:soul_sand"}} ~ ~ ~ 0.2 0 0.2 0 3 force
+    particle soul ~ ~ ~ 0.2 0 0.2 0.05 3 force
+    particle reverse_portal ~ ~ ~ 0.2 0 0.2 0.05 5 force
+    execute if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^ ^1
+    execute if block ~ ~ ~ #wasd.tags:nonsolid if block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^-1 ^1
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tp @s ^ ^1 ^1
+
+    execute if block ~ ~-2 ~ #wasd.tags:nonsolid run kill @s
+    execute unless block ~ ~1 ~ #wasd.tags:nonsolid run kill @s
+
+}
+
+function circle_portal{
+    scoreboard players add @s wasd.timer 1
+    execute as @e[tag=wasd.portal_pulling,limit=1,sort=nearest,distance=..25] at @s run block{
+        tp @s ~ ~-0.025 ~
+        data merge entity @s {NoAI:1b}
+    }
+
+    execute as @s[scores={wasd.timer=100..}] run block{
+        execute as @e[tag=wasd.portal_pulling,limit=1,sort=nearest,distance=..25] run block{
+            tag @s remove wasd.portal_pulling
+            data merge entity @s {NoAI:0b}
+            data merge entity @s {Motion:[0.0,0.7,0.0]}
+        }
+        particle block{block_state:{Name:"minecraft:nether_portal"}} ~ ~0.1 ~ 0.7 0.15 0.7 0.1 50 force
+        particle block{block_state:{Name:"minecraft:obsidian"}} ~ ~0.1 ~ 0.7 0.15 0.7 0.1 50 force
+        playsound block.glass.break player @a ~ ~ ~ 1 1
+        playsound block.glass.break player @a ~ ~ ~ 1 1
+        playsound block.glass.break player @a ~ ~ ~ 1 1
+        kill @s
+        }
+
+}
+
+function undead_projectile{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=30..}]
+
+    execute as @s[scores={wasd.timer=3..}] align y run summon item_display ~ ~-1 ~ {Rotation:[1F,0F],item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.zombie_arm"],teleport_duration:0,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.6f,0.6f,0.6f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/zombie_arm"}}}
+    execute align y as @e[tag=wasd.zombie_arm,sort=nearest,limit=1,tag=!wasd.adjusted] run block{
+        playsound entity.zombie.ambient player @a ~ ~ ~ 0.1 1
+        tag @s add wasd.adjusted
+        execute store result entity @s Rotation[0] float 1 run random value 1..360
+        execute at @s run tp @s ^ ^ ^-1.5
+    }
+
+    particle dust_color_transition{from_color:[0.0, 0.996, 0.0], scale:2.0, to_color:[0.0, 0.525, 0.035]} ~ ~ ~ 0.2 0.2 0.2 0 2 force
+    particle block{block_state:{Name:"minecraft:lime_concrete"}} ~ ~ ~ 0.2 0 0.2 0 3 force
+    particle sneeze ~ ~ ~ 0.2 0 0.2 0.05 3 force
+    execute if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^ ^1
+    execute if block ~ ~ ~ #wasd.tags:nonsolid if block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^-1 ^1
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tp @s ^ ^1 ^1
+
+    execute if block ~ ~-2 ~ #wasd.tags:nonsolid run kill @s
+    execute unless block ~ ~1 ~ #wasd.tags:nonsolid run kill @s
+}
+
+function zombie_arm{
+    scoreboard players add @s wasd.timer 1
+    execute as @s[scores={wasd.timer=2}] run data merge entity @s {teleport_duration:20}
+    execute as @s[scores={wasd.timer=3}] run tp @s ~ ~1 ~
+    execute as @s[scores={wasd.timer=3..23}] align y run particle block{block_state:{Name:"minecraft:dirt"}} ~ ~-0.1 ~ 0.05 0.05 0.05 0 4 normal 
+
+    execute as @s[scores={wasd.timer=24}] run block{
+        execute store result score @s wasd.y_angle run data get entity @s Rotation[1]
+        execute store result score @s wasd.rng run random value 0..1
+        execute store result score @s[scores={wasd.rng=0}] wasd.temp run random value 10..20
+        execute store result score @s[scores={wasd.rng=1}] wasd.temp run random value -20..-10
+        execute store result entity @s Rotation[1] float 1 run scoreboard players operation @s wasd.y_angle += @s wasd.temp
+    }
+    execute as @s[scores={wasd.timer=44}] run block{
+        execute store result score @s wasd.y_angle run data get entity @s Rotation[1]
+        execute store result score @s wasd.rng run random value 0..1
+        execute store result score @s[scores={wasd.rng=0}] wasd.temp run random value 10..20
+        execute store result score @s[scores={wasd.rng=1}] wasd.temp run random value -20..-10
+        execute store result entity @s Rotation[1] float 1 run scoreboard players operation @s wasd.y_angle += @s wasd.temp
+    }
+    execute as @s[scores={wasd.timer=64}] run block{
+        playsound entity.zombie.ambient player @a ~ ~ ~ 0.1 1
+        execute store result score @s wasd.y_angle run data get entity @s Rotation[1]
+        execute store result score @s wasd.rng run random value 0..1
+        execute store result score @s[scores={wasd.rng=0}] wasd.temp run random value 10..20
+        execute store result score @s[scores={wasd.rng=1}] wasd.temp run random value -20..-10
+        execute store result entity @s Rotation[1] float 1 run scoreboard players operation @s wasd.y_angle += @s wasd.temp
+    }
+    execute as @s[scores={wasd.timer=84}] run block{
+        execute store result score @s wasd.y_angle run data get entity @s Rotation[1]
+        execute store result score @s wasd.rng run random value 0..1
+        execute store result score @s[scores={wasd.rng=0}] wasd.temp run random value 10..20
+        execute store result score @s[scores={wasd.rng=1}] wasd.temp run random value -20..-10
+        execute store result entity @s Rotation[1] float 1 run scoreboard players operation @s wasd.y_angle += @s wasd.temp
+    }
+
+    execute align y as @e[type=#wasd.tags:mobs_player,distance=..0.8] run block{
+        effect give @s wither 3 1 true
+        effect give @s slowness 2 1 true
+    }
+
+
+    execute as @s[scores={wasd.timer=100..}] run block{
+        particle sneeze ~ ~ ~ 0.1 0.3 0.1 0.05 15 force
+        playsound block.slime_block.step player @a ~ ~ ~ 0.2 1
+        playsound entity.zombie.death player @a ~ ~ ~ 0.1 1
+        kill @s
+        }
+
+}
+
+function death_projectile{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=200..}]
+    execute positioned ~ ~0.25 ~ run damage @e[type=#wasd.tags:mobs_player,distance=..1,limit=1,sort=nearest] 4 minecraft:player_attack by @s
+
+    execute as @s[scores={wasd.timer=0..100}] run particle dust{color:[0.0, 0.0, 0.0], scale:2.0} ~ ~ ~ 0.2 0.2 0.2 0 1 force
+    execute as @s[scores={wasd.timer=101..150}] run particle dust{color:[0.0, 0.0, 0.0], scale:3.0} ~ ~ ~ 0.2 0.2 0.2 0 1 force
+    execute as @s[scores={wasd.timer=151..}] run particle dust{color:[0.0, 0.0, 0.0], scale:4.0} ~ ~ ~ 0.2 0.2 0.2 0 1 force
+    particle block{block_state:{Name:"minecraft:black_concrete"}} ~ ~ ~ 0.2 0 0.2 0 1 force
+    particle squid_ink ~ ~ ~ 0.2 0 0.2 0.05 1 force
+    execute if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^ ^0.1
+    execute if block ~ ~ ~ #wasd.tags:nonsolid if block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^-1 ^0.1
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tp @s ^ ^1 ^0.2
+
+    execute if block ~ ~-2 ~ #wasd.tags:nonsolid run kill @s
+    execute unless block ~ ~1 ~ #wasd.tags:nonsolid run kill @s
+
+}
+
+function draining_wand{
+    scoreboard players add @s wasd.timer 1
+    scoreboard players add @s wasd.temp 1
+    scoreboard players add @s wasd.temp2 1
+    
+    execute as @s[scores={wasd.timer=300..}] run block{
+        execute as @e[scores={wasd.reduced_max_health=1..},type=!player] run block{
+            attribute @s minecraft:max_health modifier remove 6370001
+            attribute @s minecraft:max_health modifier remove 6370002
+            attribute @s minecraft:max_health modifier remove 6370003
+            attribute @s minecraft:max_health modifier remove 6370004
+            attribute @s minecraft:max_health modifier remove 6370005
+            attribute @s minecraft:max_health modifier remove 6370006
+            attribute @s minecraft:max_health modifier remove 6370007
+            attribute @s minecraft:max_health modifier remove 6370008
+            attribute @s minecraft:max_health modifier remove 6370009
+            scoreboard players reset @s wasd.reduced_max_health
+        }
+        kill @s
+    }
+    tp @s ~ ~ ~ ~5 ~
+    particle dust{color:[0.0, 0.0, 0.0], scale:4.0} ^ ^0.1 ^7
+    particle dust{color:[0.0, 0.0, 0.0], scale:4.0} ^ ^0.1 ^-7
+    particle dust{color:[0.0, 0.0, 0.0], scale:4.0} ^7 ^0.1 ^
+    particle dust{color:[0.0, 0.0, 0.0], scale:4.0} ^-7 ^0.1 ^
+
+    execute as @s[scores={wasd.temp2=30..}] run block{
+        execute as @e[type=#wasd.tags:mobs,distance=..7,gamemode=!creative,gamemode=!spectator] at @s run block{
+            scoreboard players add @s wasd.reduced_max_health 1
+            execute as @s[scores={wasd.reduced_max_health=1}] run attribute @s minecraft:max_health modifier add 6370001 -0.1 add_multiplied_base
+            execute as @s[scores={wasd.reduced_max_health=2}] run attribute @s minecraft:max_health modifier add 6370002 -0.1 add_multiplied_base
+            execute as @s[scores={wasd.reduced_max_health=3}] run attribute @s minecraft:max_health modifier add 6370003 -0.1 add_multiplied_base
+            execute as @s[scores={wasd.reduced_max_health=4}] run attribute @s minecraft:max_health modifier add 6370004 -0.1 add_multiplied_base
+            execute as @s[scores={wasd.reduced_max_health=5}] run attribute @s minecraft:max_health modifier add 6370005 -0.1 add_multiplied_base
+            execute as @s[scores={wasd.reduced_max_health=6}] run attribute @s minecraft:max_health modifier add 6370006 -0.1 add_multiplied_base
+            execute as @s[scores={wasd.reduced_max_health=7}] run attribute @s minecraft:max_health modifier add 6370007 -0.1 add_multiplied_base
+            execute as @s[scores={wasd.reduced_max_health=8}] run attribute @s minecraft:max_health modifier add 6370008 -0.1 add_multiplied_base
+            execute as @s[scores={wasd.reduced_max_health=9}] run attribute @s minecraft:max_health modifier add 6370009 -0.1 add_multiplied_base
+            execute anchored eyes positioned ^ ^ ^ positioned ~ ~-0.5 ~ run particle minecraft:soul ~ ~ ~ 0.2 0.2 0.2 0.05 10 force
+            playsound minecraft:entity.vex.charge player @a ~ ~ ~ 1 0.5
+        }
+        scoreboard players reset @s wasd.temp2
+    }
+
+    execute as @s[scores={wasd.temp=10}] run block{
+            REPEAT(1, 16) as i{
+                execute rotated ~<%i*20%> ~ run particle minecraft:soul ^ ^0.1 ^1.5 0 0 0 0.05 3
+            }
+    }
+    execute as @s[scores={wasd.temp=20}] run block{
+            REPEAT(1, 24) as i{
+                execute rotated ~<%i*15%> ~ run particle minecraft:soul ^ ^0.1 ^3 0 0 0 0.05 3
+            }
+    }
+    execute as @s[scores={wasd.temp=30}] run block{
+            REPEAT(1, 36) as i{
+                execute rotated ~<%i*10%> ~ run particle minecraft:soul ^ ^0.1 ^4.5 0 0 0 0.05 3
+            }
+    }
+    execute as @s[scores={wasd.temp=40}] run block{
+            REPEAT(1, 45) as i{
+                execute rotated ~<%i*8%> ~ run particle minecraft:soul ^ ^0.1 ^6 0 0 0 0.05 3
+            }
+    }
+    scoreboard players reset @s[scores={wasd.temp=40..}] wasd.temp
+
+}
+
+
+function shadow_wand{
+    execute align y run block{
+        particle squid_ink ~ ~1 ~ 0.5 0.1 0.5 0.1 100 force
+        execute align y run summon item_display ~ ~ ~ {CustomName:{"text":"a Shadow Player"},item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.shadow_player"],teleport_duration:30,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,2f,0f],scale:[1.5f,1.5f,1.5f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/shadow_player"}}}
+        playsound minecraft:entity.evoker.prepare_summon player @a ~ ~ ~ 1 0
+    }
+    kill @s
+}
+
+function shadow_player{
+    scoreboard players add @s wasd.timer 1
+    execute as @s[scores={wasd.timer=1}] run tp @s ~ ~2 ~
+    kill @s[scores={wasd.timer=300..}]
+    particle dust{color:[0.0, 0.0, 0.0], scale:2.0} ~ ~-2.0 ~ 0.7 0.01 0.7 0 15 force
+    execute as @s[scores={wasd.timer=1..20}] run particle dust{color:[0.0, 0.0, 0.0], scale:2.0} ~ ~-2.0 ~ 0.2 0.4 0.2 0 10 force
+    execute as @s[scores={wasd.timer=21..}] run particle dust{color:[0.0, 0.0, 0.0], scale:2.0} ~ ~-1.0 ~ 0.2 0.4 0.2 0 10 force
+    execute as @s[scores={wasd.timer=31}] run data merge entity @s {teleport_duration:1}
+    execute as @s[scores={wasd.timer=31..}] run block{
+        tp @s ~ ~ ~ ~-10 ~
+        execute rotated ~67.5 ~2 run block{
+            execute positioned ^ ^ ^1 as @e[type=#wasd.tags:mobs_player,distance=..1.2] run damage @s 10 minecraft:player_attack by @n[tag=wasd.shadow_player]
+            execute positioned ^ ^ ^2 as @e[type=#wasd.tags:mobs_player,distance=..1.2] run damage @s 10 minecraft:player_attack by @n[tag=wasd.shadow_player]
+            execute positioned ^ ^ ^3 as @e[type=#wasd.tags:mobs_player,distance=..1.2] run damage @s 10 minecraft:player_attack by @n[tag=wasd.shadow_player]
+            execute positioned ^ ^ ^4 as @e[type=#wasd.tags:mobs_player,distance=..1.2] run damage @s 10 minecraft:player_attack by @n[tag=wasd.shadow_player]
+            execute positioned ^ ^-1 ^1 as @e[type=#wasd.tags:mobs_player,distance=..1.2] run damage @s 10 minecraft:player_attack by @n[tag=wasd.shadow_player]
+            execute positioned ^ ^-1 ^2 as @e[type=#wasd.tags:mobs_player,distance=..1.2] run damage @s 10 minecraft:player_attack by @n[tag=wasd.shadow_player]
+            execute positioned ^ ^-1 ^3 as @e[type=#wasd.tags:mobs_player,distance=..1.2] run damage @s 10 minecraft:player_attack by @n[tag=wasd.shadow_player]
+            execute positioned ^ ^-1 ^4 as @e[type=#wasd.tags:mobs_player,distance=..1.2] run damage @s 10 minecraft:player_attack by @n[tag=wasd.shadow_player]
+            execute positioned ^0.4 ^-0.4 ^3 rotated ~-120 ~ run particle large_smoke ^ ^ ^ ^ ^ ^100000000 0.000000005 0 force
+        }
+    }
+}
+
+function shadow_walk{
+    scoreboard players add @s wasd.timer 1
+    execute as @s[scores={wasd.timer=400..}] run block{
+        execute on passengers run function wasd.magic:shadow_walk_reset
+        kill @s
+        }
+    tag @s remove wasd.has_passengers
+    execute on passengers on vehicle run tag @s add wasd.has_passengers
+    execute unless entity @s[tag=wasd.has_passengers] run block{
+        execute as @a[tag=wasd.riding_shadow_walk] on vehicle on passengers run tag @s add wasd.actively_riding
+        ride @a[tag=wasd.riding_shadow_walk,limit=1,sort=nearest,tag=!wasd.actively_riding] mount @s
+        execute as @a[tag=wasd.riding_shadow_walk,limit=1,sort=nearest,tag=!wasd.actively_riding] run function wasd.magic:shadow_walk_reset
+        kill @s
+    }
+
+
+
+    particle dust{color:[0.0, 0.0, 0.0], scale:2.0} ~ ~ ~ 0 0 0 0 1 force
+    execute if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^ ^0.1
+    execute positioned ^ ^ ^0.2 if block ~ ~ ~ #wasd.tags:nonsolid if block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^-1 ^
+    execute positioned ^ ^ ^0.2 unless block ~ ~ ~ #wasd.tags:nonsolid run tp @s ^ ^1 ^0.1
+
+    execute if block ~ ~-2 ~ #wasd.tags:nonsolid run block{
+        execute on passengers run function wasd.magic:shadow_walk_reset
+        kill @s
+    }
+    execute unless block ~ ~1 ~ #wasd.tags:nonsolid run block{
+        execute on passengers run function wasd.magic:shadow_walk_reset
+        kill @s
+    }
+    data modify entity @s Rotation[0] set from entity @a[tag=wasd.riding_shadow_walk,limit=1,sort=nearest] Rotation[0]
+    
+}
+function shadow_walk_reset{
+    tag @s remove wasd.actively_riding
+    gamemode creative @s[tag=wasd.creative]
+    gamemode survival @s[tag=wasd.survival]
+    gamemode adventure @s[tag=wasd.adventure]
+    tag @s remove wasd.creative
+    tag @s remove wasd.survival
+    tag @s remove wasd.adventure    
+    tag @s remove wasd.riding_shadow_walk
+    execute at @s run tp @s ~ ~0.7 ~
+    playsound entity.evoker.cast_spell player @a ~ ~ ~ 0.3 2
+}
+function darkness_projectile{
+    scoreboard players add @s wasd.timer 1
+    scoreboard players add @s wasd.temp 1
+    kill @s[scores={wasd.timer=20..}]
+
+    execute as @s[scores={wasd.timer=3..,wasd.temp=2..}] align y positioned ~ ~-2 ~ run block{
+        summon item_display ^ ^ ^ {CustomName:{"text":"Dark Teeth"},Rotation:[0F,30F],item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.dark_teeth","wasd.left"],teleport_duration:0,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/dark_teeth"}}}
+        summon item_display ^ ^ ^ {CustomName:{"text":"Dark Teeth"},Rotation:[180F,30F],item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.dark_teeth","wasd.right"],teleport_duration:0,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/dark_teeth"}}}
+    }
+    scoreboard players reset @s[scores={wasd.temp=2..}] wasd.temp
+
+    execute store result score @s wasd.x_angle run data get entity @s Rotation[0]
+
+    execute align y run block{
+        execute store result entity @e[tag=wasd.dark_teeth,tag=wasd.left,sort=nearest,limit=1,tag=!wasd.adjusted] Rotation[0] float 1 run scoreboard players add @s wasd.x_angle 90
+        execute store result entity @e[tag=wasd.dark_teeth,tag=wasd.right,sort=nearest,limit=1,tag=!wasd.adjusted] Rotation[0] float 1 run scoreboard players remove @s wasd.x_angle 180
+        execute as @e[tag=wasd.dark_teeth,sort=nearest,limit=2,tag=!wasd.adjusted] at @s rotated ~ 0 run tp @s ^ ^ ^0.4
+        tag @e[tag=wasd.dark_teeth,sort=nearest,limit=2,tag=!wasd.adjusted] add wasd.adjusted
+    }
+
+    particle squid_ink ~ ~ ~ 0.2 0 0.2 0.05 3 force
+    execute if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^ ^1
+    execute if block ~ ~ ~ #wasd.tags:nonsolid if block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^-1 ^1
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tp @s ^ ^1 ^1
+
+    execute if block ~ ~-2 ~ #wasd.tags:nonsolid run kill @s
+    execute unless block ~ ~1 ~ #wasd.tags:nonsolid run kill @s
+
+}
+function dark_teeth{
+    scoreboard players add @s wasd.timer 1
+    execute as @s[scores={wasd.timer=1}] run playsound minecraft:entity.evoker_fangs.attack player @a ~ ~ ~ 0.3 0.5
+    execute as @s[scores={wasd.timer=2}] run data merge entity @s {teleport_duration:10}
+    execute as @s[scores={wasd.timer=3}] run tp @s ~ ~2.1 ~
+    execute as @s[scores={wasd.timer=12}] run data merge entity @s {teleport_duration:3}
+    execute as @s[scores={wasd.timer=13}] run tp @s ~ ~ ~ ~ ~-32
+    execute as @s[scores={wasd.timer=16}] positioned ~ ~ ~ as @e[type=#wasd.tags:mobs_player,distance=..1.5,limit=1,sort=nearest] run damage @s 8 minecraft:player_attack by @e[tag=wasd.dark_teeth,limit=1,sort=nearest]
+    execute as @s[scores={wasd.timer=3..23}] align y run particle dust{color:[0.0, 0.0, 0.0], scale:3.0} ~ ~0.1 ~ 0.5 0.05 0.5 0 4 normal
+
+    execute as @s[scores={wasd.timer=30..}] run block{
+        particle squid_ink ~ ~ ~ 0.1 0.3 0.1 0.05 15 force
+        kill @s
+        }
+
+}
+
+
+
+function dark_sword_projectile{
+    scoreboard players add @s wasd.timer 1
+    scoreboard players add @s wasd.temp 1
+    kill @s[scores={wasd.timer=24..}]
+
+    execute as @s[scores={wasd.timer=3..,wasd.temp=3..}] run summon item_display ~ ~ ~ {CustomName:{"text":"a Dark Sword"},Rotation:[0F,0F],item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.dark_sword_sword"],teleport_duration:0,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]}}
+    execute as @e[tag=wasd.dark_sword_sword,sort=nearest,limit=1,tag=!wasd.adjusted] run block{
+        tag @s add wasd.adjusted
+        execute store result entity @s Rotation[0] float 1 run random value 1..360
+        execute at @s rotated ~ ~ run tp @s ^ ^7 ^-7 ~ -45
+    }
+    scoreboard players reset @s[scores={wasd.temp=3..}] wasd.temp
+
+    particle squid_ink ~ ~ ~ 0.2 0 0.2 0.05 3 force
+    execute if block ~ ~ ~ #wasd.tags:nonsolid unless block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^ ^1
+    execute if block ~ ~ ~ #wasd.tags:nonsolid if block ~ ~-1 ~ #wasd.tags:nonsolid run tp @s ^ ^-1 ^1
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tp @s ^ ^1 ^1
+
+    execute if block ~ ~-2 ~ #wasd.tags:nonsolid run kill @s
+    execute unless block ~ ~1 ~ #wasd.tags:nonsolid run kill @s
+
+}
+function dark_sword_sword{
+    scoreboard players add @s wasd.timer 1
+    execute as @s[scores={wasd.timer=1..20}] run particle squid_ink ~ ~ ~ 0.5 0.5 0.5 0.05 10 force
+    execute as @s[scores={wasd.timer=20}] run data merge entity @s {teleport_duration:10,item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/dark_sword"}}}
+    execute as @s[scores={wasd.timer=20}] run playsound minecraft:entity.evoker.cast_spell player @a ~ ~ ~ 2 1.5
+    execute as @s[scores={wasd.timer=40}] rotated ~ 45 run block{
+        tp @s ^ ^ ^10
+        playsound minecraft:entity.player.attack.sweep player @a ~ ~ ~ 2 0
+
+    }
+    execute as @s[scores={wasd.timer=50..}] run block{
+        execute as @e[type=#wasd.tags:mobs_player,distance=..2] run damage @s 16 minecraft:player_attack by @e[tag=wasd.dark_sword_sword,limit=1,sort=nearest]
+        particle large_smoke ~ ~ ~ 0.7 0.3 0.7 0.05 40 force
+        particle dust{color:[0.0, 0.0, 0.0], scale:3.0} ~ ~ ~ 0.7 0.3 0.7 0.05 10 force
+        kill @s
+    }
+
+}
+function light_orb{
+    scoreboard players add @s wasd.timer 1
+    execute as @s[scores={wasd.timer=1}] if block ~ ~ ~ light run tag @s add wasd.alright_light
+    execute as @s[scores={wasd.timer=1}] if block ~ ~ ~ #wasd.tags:air run setblock ~ ~ ~ light[level=15] keep
+    particle dust_color_transition{from_color:[0.961, 0.961, 0.055], scale:2.0, to_color:[1.0, 0.557, 0.082]} ~ ~ ~ 0.5 0.5 0.5 0 3 force
+    particle end_rod ~ ~ ~ 0.5 0.5 0.5 0.05 2 force
+    particle wax_off ~ ~ ~ 0.5 0.5 0.5 0.05 2 force
+    particle wax_on ~ ~ ~ 0.5 0.5 0.5 0.05 2 force
+
+    execute as @e[type=#wasd.tags:dead,distance=..5] unless predicate wasd.lib:on_fire run block{
+        playsound item.firecharge.use player @a ~ ~ ~ 1 0.8
+        data merge entity @s {Fire:60}
+    }
+
+    execute as @s[scores={wasd.timer=1200..}] run block{
+        particle end_rod ~ ~ ~ 0.5 0.5 0.5 0.2 200 force
+        execute unless entity @s[tag=wasd.alright_light] if block ~ ~ ~ light run setblock ~ ~ ~ air
+        kill @s
+    }
+}
+function flash{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=100..}]
+    tp @s ^ ^ ^1 ~ ~0.05
+    particle end_rod ~ ~ ~ 0 0 0 0.05 4 force
+    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.hit
+    execute as @s[scores={wasd.timer=10..}] run block{
+        execute positioned ~ ~1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        execute positioned ~ ~ ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        execute positioned ~ ~-1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+        }
+    execute as @s[tag=wasd.hit] run block{
+        playsound minecraft:entity.generic.explode player @a ~ ~ ~ 0.5 0.7
+        playsound minecraft:block.beacon.deactivate player @a ~ ~ ~ 0.5 2
+        particle flash ~ ~1 ~ 0.2 0.2 0.2 0 10
+        particle falling_dust{block_state:{Name:"minecraft:yellow_wool"}} ~ ~1 ~ 0.2 0.2 0.2 0 100
+        particle end_rod ~ ~1 ~ 0.2 0.2 0.2 0.2 100
+        execute positioned ~ ~1 ~ as @e[type=#wasd.tags:mobs_player,tag=!wasd.generic_stunned,distance=..4] run block{
+                damage @s 2 minecraft:on_fire
+                tag @s add wasd.lib_entity_tick
+                tag @s add wasd.generic_stunned
+                effect give @s minecraft:resistance 3 2 true
+        }
+        kill @s
+    }
+}
+function heavenly_light{
+    scoreboard players add @s wasd.timer 1
+    summon marker ~ ~ ~ {CustomName:{"text":"Heavenly Light"},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.heavenly_light_projectile"]}
+    scoreboard players operation @e[tag=wasd.heavenly_light_projectile,limit=1,sort=nearest,distance=..0.01,tag=!wasd.adjusted] wasd.timer = @s wasd.timer
+    execute as @e[tag=wasd.heavenly_light_projectile,limit=1,sort=nearest,distance=..0.01,tag=!wasd.adjusted] at @s run block{
+        tag @s add wasd.adjusted
+        execute store result entity @s Rotation[0] float 1 run random value 1..360
+        execute as @s[scores={wasd.timer=0..20}] at @s rotated ~ ~ run tp @s ^ ^20 ^5
+        execute as @s[scores={wasd.timer=21..40}] at @s rotated ~ ~ run tp @s ^ ^20 ^6
+        execute as @s[scores={wasd.timer=41..60}] at @s rotated ~ ~ run tp @s ^ ^20 ^7
+        execute as @s[scores={wasd.timer=61..80}] at @s rotated ~ ~ run tp @s ^ ^20 ^8
+        execute as @s[scores={wasd.timer=81..100}] at @s rotated ~ ~ run tp @s ^ ^20 ^9
+    }
+    kill @s[scores={wasd.timer=100..}]
+}
+function heavenly_light_projectile{
+    scoreboard players add @s wasd.timer 1
+    kill @s[scores={wasd.timer=300..}]
+    tp @s ~ ~-0.75 ~
+    execute as @e[type=#wasd.tags:mobs_player,distance=..1.5] run damage @s 8 minecraft:player_attack by @e[tag=wasd.heavenly_light_projectile,limit=1,sort=nearest]
+    execute unless block ~ ~-0.75 ~ #wasd.tags:nonsolid run block{
+        playsound minecraft:entity.firework_rocket.blast_far player @a ~ ~ ~ 0.1 2
+        kill @s
+    }
+    particle end_rod ~ ~1 ~ 0.05 0.05 0.05 0.05 2
+    particle falling_dust{block_state:{Name:"minecraft:yellow_wool"}} ~ ~ ~ 0.02 0.02 0.02 0 2 force
+
+}
+#function combustion{
+#    scoreboard players add @s wasd.timer 1
+#    scoreboard players add @s wasd.temp 1
+#    kill @s[scores={wasd.timer=100..}]
+#    tp @s ^ ^ ^1
+#    particle flame ~ ~ ~ 0.1 0.1 0.1 0.01 10 force
+#    execute unless block ~ ~ ~ #wasd.tags:nonsolid run tag @s add wasd.hit
+#    execute as @s[scores={wasd.temp=5}] run block{
+#        scoreboard players reset @s wasd.temp
+#        execute store result score @s wasd.temp2 run random value 0..1
+#        execute store result score @s[scores={wasd.temp2=0}] wasd.x_angle run data get entity @s Rotation[0]
+#        execute store result score @s[scores={wasd.temp2=0}] wasd.rng run random value -10..-5
+#        execute store result entity @s[scores={wasd.temp2=0}] Rotation[0] float 1 run scoreboard players operation @s wasd.x_angle += @s wasd.rng
+#
+#        execute store result score @s[scores={wasd.temp2=1}] wasd.x_angle run data get entity @s Rotation[0]
+#        execute store result score @s[scores={wasd.temp2=1}] wasd.rng run random value 5..10
+#        execute store result entity @s[scores={wasd.temp2=1}] Rotation[0] float 1 run scoreboard players operation @s wasd.x_angle += @s wasd.rng
+#
+#
+#        execute store result score @s wasd.temp2 run random value 0..1
+#        execute store result score @s[scores={wasd.temp2=0}] wasd.y_angle run data get entity @s Rotation[1]
+#        execute store result score @s[scores={wasd.temp2=0}] wasd.rng run random value -10..-5
+#        execute store result entity @s[scores={wasd.temp2=0}] Rotation[1] float 1 run scoreboard players operation @s wasd.y_angle += @s wasd.rng
+#
+#        execute store result score @s[scores={wasd.temp2=1}] wasd.y_angle run data get entity @s Rotation[1]
+#        execute store result score @s[scores={wasd.temp2=1}] wasd.rng run random value 5..10
+#        execute store result entity @s[scores={wasd.temp2=1}] Rotation[1] float 1 run scoreboard players operation @s wasd.y_angle += @s wasd.rng
+#
+#    }
+#
+#
+#    execute as @s[scores={wasd.timer=10..}] run block{
+#        execute positioned ~ ~1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+#        execute positioned ~ ~ ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+#        execute positioned ~ ~-1 ~ if entity @e[type=#wasd.tags:mobs_player,distance=..1] run tag @s add wasd.hit
+#        }
+#    #execute as @s[tag=wasd.hit] run block{
+#    #    playsound minecraft:entity.generic.explode player @a ~ ~ ~ 0.5 0.7
+#    #    particle flash ~ ~1 ~ 0.2 0.2 0.2 0 10
+#    #    particle falling_dust{block_state:{Name:"minecraft:yellow_wool"}} ~ ~1 ~ 0.2 0.2 0.2 0 100
+#    #    particle end_rod ~ ~1 ~ 0.2 0.2 0.2 0.2 100
+#    #    execute positioned ~ ~1 ~ as @e[type=#wasd.tags:mobs_player,tag=!wasd.generic_stunned,distance=..4] run block{
+#    #            damage @s 2 minecraft:on_fire
+#    #            tag @s add wasd.lib_entity_tick
+#    #            tag @s add wasd.generic_stunned
+#    #            effect give @s minecraft:resistance 3 2 true
+#    #    }
+#    #    kill @s
+#    #}
+#
+#}

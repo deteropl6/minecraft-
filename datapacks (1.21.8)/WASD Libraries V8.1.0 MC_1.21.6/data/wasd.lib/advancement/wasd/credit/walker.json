@@ -1,0 +1,24 @@
+{
+  "parent": "wasd.lib:wasd/credit/breadcrumb",
+  "display": {
+    "icon": {
+      "id": "minecraft:player_head",
+      "components": {
+        "minecraft:profile": {
+          "name": "Walker__91"
+        }
+      }
+    },
+    "title": "Walker__91",
+    "description": "\nTranslated my Datapacks into Chinese\n",
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

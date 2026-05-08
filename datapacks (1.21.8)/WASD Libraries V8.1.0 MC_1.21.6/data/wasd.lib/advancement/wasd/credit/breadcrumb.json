@@ -1,0 +1,24 @@
+{
+  "parent": "wasd.lib:wasd/credit/boba",
+  "display": {
+    "icon": {
+      "id": "minecraft:player_head",
+      "components": {
+        "minecraft:profile": {
+          "name": "Breadcrumb5550"
+        }
+      }
+    },
+    "title": "Breadcrumb5550     ",
+    "description": "\nMade a bunch of Moar Sword textures that are absolutely beautiful\n",
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

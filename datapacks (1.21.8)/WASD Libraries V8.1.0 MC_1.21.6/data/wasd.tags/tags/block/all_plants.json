@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:small_flowers",
+    "#wasd.tags:large_plants",
+    "minecraft:short_grass",
+    "minecraft:tall_grass",
+    "minecraft:azalea",
+    "minecraft:flowering_azalea",
+    "minecraft:moss_carpet",
+    "minecraft:hanging_roots",
+    "minecraft:big_dripleaf",
+    "minecraft:small_dripleaf",
+    "minecraft:glow_lichen",
+    "minecraft:spore_blossom",
+    "minecraft:mangrove_propagule",
+    "minecraft:pink_petals",
+    "minecraft:pitcher_plant",
+    "minecraft:torchflower"
+  ]
+}

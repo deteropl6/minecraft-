@@ -1,0 +1,9 @@
+{
+    "condition": "minecraft:location_check",
+    "predicate": {
+      "structures": [
+        "minecraft:ocean_ruin_cold",
+        "minecraft:ocean_ruin_warm"
+      ]
+    }
+  }

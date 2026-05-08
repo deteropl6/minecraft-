@@ -1,0 +1,10 @@
+#mc-build WASD content
+execute if block ~1 ~-0.5 ~1 lava[level=0] align xyz positioned ~0.5 ~ ~0.5 unless entity @e[tag=wasd.lava_walker,distance=..0.3] run summon minecraft:marker ~1 ~-0.5 ~1 {Tags:["wasd.entity","wasd.lava_walker"]}
+execute if block ~1 ~-0.5 ~0 lava[level=0] align xyz positioned ~0.5 ~ ~0.5 unless entity @e[tag=wasd.lava_walker,distance=..0.3] run summon minecraft:marker ~1 ~-0.5 ~0 {Tags:["wasd.entity","wasd.lava_walker"]}
+execute if block ~1 ~-0.5 ~-1 lava[level=0] align xyz positioned ~0.5 ~ ~0.5 unless entity @e[tag=wasd.lava_walker,distance=..0.3] run summon minecraft:marker ~1 ~-0.5 ~-1 {Tags:["wasd.entity","wasd.lava_walker"]}
+execute if block ~0 ~-0.5 ~1 lava[level=0] align xyz positioned ~0.5 ~ ~0.5 unless entity @e[tag=wasd.lava_walker,distance=..0.3] run summon minecraft:marker ~0 ~-0.5 ~1 {Tags:["wasd.entity","wasd.lava_walker"]}
+execute if block ~0 ~-0.5 ~0 lava[level=0] align xyz positioned ~0.5 ~ ~0.5 unless entity @e[tag=wasd.lava_walker,distance=..0.3] run summon minecraft:marker ~0 ~-0.5 ~0 {Tags:["wasd.entity","wasd.lava_walker"]}
+execute if block ~0 ~-0.5 ~-1 lava[level=0] align xyz positioned ~0.5 ~ ~0.5 unless entity @e[tag=wasd.lava_walker,distance=..0.3] run summon minecraft:marker ~0 ~-0.5 ~-1 {Tags:["wasd.entity","wasd.lava_walker"]}
+execute if block ~-1 ~-0.5 ~1 lava[level=0] align xyz positioned ~0.5 ~ ~0.5 unless entity @e[tag=wasd.lava_walker,distance=..0.3] run summon minecraft:marker ~-1 ~-0.5 ~1 {Tags:["wasd.entity","wasd.lava_walker"]}
+execute if block ~-1 ~-0.5 ~0 lava[level=0] align xyz positioned ~0.5 ~ ~0.5 unless entity @e[tag=wasd.lava_walker,distance=..0.3] run summon minecraft:marker ~-1 ~-0.5 ~0 {Tags:["wasd.entity","wasd.lava_walker"]}
+execute if block ~-1 ~-0.5 ~-1 lava[level=0] align xyz positioned ~0.5 ~ ~0.5 unless entity @e[tag=wasd.lava_walker,distance=..0.3] run summon minecraft:marker ~-1 ~-0.5 ~-1 {Tags:["wasd.entity","wasd.lava_walker"]}

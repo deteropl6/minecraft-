@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#wasd.tags:wooden",
+    "minecraft:pumpkin",
+    "minecraft:carved_pumpkin",
+    "minecraft:jack_o_lantern",
+    "minecraft:brown_mushroom_block",
+    "minecraft:red_mushroom_block",
+    "minecraft:mushroom_stem"
+  ]
+}

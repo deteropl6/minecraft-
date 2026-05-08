@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:logs",
+    "#minecraft:planks",
+    "#minecraft:wooden_trapdoors",
+    "#minecraft:wooden_doors",
+    "#minecraft:wooden_slabs",
+    "#minecraft:wooden_stairs",
+    "minecraft:chest",
+    "minecraft:crafting_table",
+    "minecraft:jukebox",
+    "minecraft:bookshelf",
+    "minecraft:note_block",
+    "minecraft:daylight_detector",
+    "#minecraft:wool",
+    "#minecraft:leaves",
+    "minecraft:vine"
+  ]
+}
