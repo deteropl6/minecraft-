@@ -1,0 +1,28 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather_boots",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": "{\"fallback\":\"Sticky Boots\",\"translate\":\"wasd.boots.sticky\", \"italic\":false}",
+                "minecraft:lore": ["{\"fallback\":\"Lets you slide down the side of blocks.\",\"translate\": \"wasd.boots.sticky.lore\", \"italic\":false, \"color\":blue}"],
+                "minecraft:custom_model_data": 6370003,
+                "minecraft:max_damage": 91,
+                "minecraft:dyed_color": 10289049,
+                "minecraft:custom_data": {"wasd.custom_boot":3,"wasd_boot":1},
+                "minecraft:attribute_modifiers": {"modifiers": [{"type": "minecraft:generic.armor","id": "6370001","amount": 1,"operation": "add_value","slot": "feet"}]}
+
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

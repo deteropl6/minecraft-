@@ -1,0 +1,1 @@
+execute as @e[type=ender_dragon,tag=HCDragon,scores={HCDragon_phase=0},tag=!HCReady] run tag @s add HCReady

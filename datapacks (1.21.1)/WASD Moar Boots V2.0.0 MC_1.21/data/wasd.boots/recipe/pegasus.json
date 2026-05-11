@@ -1,0 +1,35 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wasd_boots",
+    "category": "equipment",
+    "pattern": [
+        "D D",
+        "# #",
+        "E E"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:redstone_block"
+        },
+        "E": {
+            "item": "minecraft:gold_ingot"
+        },
+        "D": {
+            "item": "minecraft:feather"
+        }
+    },
+    "result": {
+        "count": 1,
+        "id": "minecraft:leather_boots",
+        "components": {
+            "minecraft:item_name": "{\"fallback\":\"Pegasus Boots\",\"translate\":\"wasd.boots.pegasus\", \"italic\":false}",
+            "minecraft:lore": ["{\"fallback\":\"Lets you sprint super fast in quick bursts.\",\"translate\": \"wasd.boots.pegasus.lore\", \"italic\":false, \"color\":blue}"],
+            "minecraft:custom_model_data": 6370009,
+            "minecraft:max_damage": 91,
+            "minecraft:dyed_color": 13405471,
+            "minecraft:custom_data": {"wasd.custom_boot":9,"wasd_boot":1},
+            "minecraft:attribute_modifiers": {"modifiers": [{"type": "minecraft:generic.armor","id": "6370001","amount": 2,"operation": "add_value","slot": "feet"}]}
+        }
+    }
+}
+

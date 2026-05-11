@@ -1,0 +1,28 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather_boots",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": "{\"fallback\":\"Pickaxe Boots\",\"translate\":\"wasd.boots.pickaxe\", \"italic\":false}",
+                "minecraft:lore": ["{\"fallback\":\"Jump + Sneak to mine the blocks you land on.\",\"translate\": \"wasd.boots.pickaxe.lore\", \"italic\":false, \"color\":blue}"],
+                "minecraft:custom_model_data": 6370022,
+                "minecraft:max_damage": 240,
+                "minecraft:dyed_color": 13167103,
+                "minecraft:custom_data": {"wasd.custom_boot":22,"wasd_boot":1},
+                "minecraft:attribute_modifiers": {"modifiers": [{"type": "minecraft:generic.armor","id": "6370001","amount": 2,"operation": "add_value","slot": "feet"}]}
+
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

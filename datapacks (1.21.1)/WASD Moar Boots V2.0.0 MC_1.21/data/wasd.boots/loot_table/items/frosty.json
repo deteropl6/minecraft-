@@ -1,0 +1,27 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather_boots",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": "{\"fallback\":\"Frosty Boots\",\"translate\":\"wasd.boots.frosty\",\"italic\":false}",
+                "minecraft:lore": ["{\"fallback\":\"Sprinting leaves a trail of frost that slows mobs/players.\",\"translate\":\"wasd.boots.frosty.lore\",\"italic\":false,\"color\":\"blue\"}"],
+                "minecraft:custom_model_data": 6370017,
+                "minecraft:max_damage": 65,
+                "minecraft:dyed_color": 11659007,
+                "minecraft:custom_data": {"wasd.custom_boot":17,"wasd_boot":1},
+                "minecraft:attribute_modifiers": {"modifiers": [{"type": "minecraft:generic.armor","id": "6370001","amount": 1,"operation": "add_value","slot": "feet"}]}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

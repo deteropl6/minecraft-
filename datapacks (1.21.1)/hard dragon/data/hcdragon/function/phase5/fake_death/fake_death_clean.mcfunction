@@ -1,0 +1,1 @@
+execute as @s at @s run kill @e[type=marker,tag=HCDragon_Fake_death_origin,tag=state5,distance=..10,sort=nearest]

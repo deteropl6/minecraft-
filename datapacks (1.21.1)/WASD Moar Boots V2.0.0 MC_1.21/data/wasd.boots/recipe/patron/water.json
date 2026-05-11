@@ -1,0 +1,30 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wasd_boots_patron",
+    "category": "equipment",
+    "pattern": [
+        "BBB",
+        "BBB",
+        "BBB"
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:barrier"
+        }
+    },
+    "result": {
+        "count": 1,
+        "id": "minecraft:leather_boots",
+        "components": {
+            "minecraft:item_name": "[{\"fallback\":\"Water Boots\",\"translate\":\"wasd.boots.water\", \"italic\":false},{\"fallback\":\" (Locked)\",\"translate\": \"wasd.patron.locked\", \"italic\":false, \"color\":dark_red}]",
+            "minecraft:lore": ["{\"translate\": \"wasd.patron.lore\", \"italic\":false, \"color\":gold}",
+            "{\"translate\": \"wasd.patron.lore2\", \"italic\":false, \"color\":gold}",
+            "{\"translate\": \"wasd.patron.lore3\", \"italic\":false, \"color\":gold}",
+            "{\"text\": \" \"}","{\"fallback\":\"Automatically places water below you when falling from a height.\",\"translate\": \"wasd.boots.water.lore\", \"italic\":false, \"color\":blue}"],
+            "minecraft:custom_model_data": 6370021,
+            "minecraft:max_damage": 65,
+            "minecraft:dyed_color": 11007
+        }
+    }
+}
+

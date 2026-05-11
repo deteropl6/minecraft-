@@ -1,0 +1,39 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wasd_boots",
+    "category": "equipment",
+    "pattern": [
+        "#F#",
+        "$ $",
+        "E E"
+    ],
+    "key": {
+        "F": {
+            "item": "minecraft:elytra"
+        },
+        "$": {
+            "item": "minecraft:gold_ingot"
+        },
+        "#": {
+            "item": "minecraft:feather"
+        },
+        "E": {
+            "item": "minecraft:white_wool"
+        }
+    },
+    "result": {
+        "count": 1,
+        "id": "minecraft:leather_boots",
+        "components": {
+            "minecraft:item_name": "{\"fallback\":\"Flappy Boots\",\"translate\":\"wasd.boots.flappy\",\"italic\":false}",
+            "minecraft:lore": ["{\"fallback\":\"Sneak while in the air to flap.\",\"translate\":\"wasd.boots.flappy.lore\",\"italic\":false,\"color\":\"blue\"}"],
+            "minecraft:custom_model_data": 6370002,
+            "minecraft:max_damage": 240,
+            "minecraft:dyed_color": 16777215,
+            "minecraft:custom_data": {"wasd.custom_boot":2,"wasd_boot":1},
+            "minecraft:attribute_modifiers": {"modifiers": [{"type": "minecraft:generic.safe_fall_distance","id": "6370001","amount": 4,"operation": "add_value","slot": "feet"},
+            {"type": "minecraft:generic.armor","id": "6370004","amount": 2,"operation": "add_value","slot": "feet"}]}
+        }
+    }
+}
+

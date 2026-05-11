@@ -1,0 +1,1 @@
+execute as @e[type=minecraft:dragon_fireball,tag=HCDragon_fireball_dup] run data modify entity @s Air set value 100

@@ -1,0 +1,28 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather_boots",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": "{\"fallback\":\"Anvil Boots\",\"translate\":\"wasd.boots.anvil\", \"italic\":false}",
+                "minecraft:lore": ["{\"fallback\":\"Fall damage hurts the mobs around where you land.\",\"translate\": \"wasd.boots.anvil.lore\", \"italic\":false, \"color\":blue}"],
+                "minecraft:custom_model_data": 6370010,
+                "minecraft:dyed_color": 7697781,
+                "minecraft:max_damage": 592,
+                "minecraft:custom_data": {"wasd.custom_boot":10,"wasd_boot":1},
+                "minecraft:attribute_modifiers": {"modifiers": [{"type": "minecraft:generic.safe_fall_distance","id": "6370001","amount": 4,"operation": "add_value","slot": "feet"},
+                {"type": "minecraft:generic.armor","id": "6370004","amount": 2,"operation": "add_value","slot": "feet"}]}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

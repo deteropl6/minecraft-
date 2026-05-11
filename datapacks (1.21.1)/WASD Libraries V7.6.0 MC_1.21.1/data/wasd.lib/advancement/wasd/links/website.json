@@ -1,0 +1,22 @@
+{
+  "parent": "wasd.lib:wasd/links/discord",
+  "display": {
+    "icon": {
+      "id": "minecraft:clay_ball",
+      "components": {
+        "minecraft:custom_model_data": 6371304
+      }
+    },
+    "title": "The WASD Website",
+    "description": "\nFind all my Datapacks\n\nwasdbuildteam.website/\n",
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

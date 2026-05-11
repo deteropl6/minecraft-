@@ -1,0 +1,32 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wasd_boots_patron",
+    "category": "equipment",
+    "pattern": [
+        "BBB",
+        "BBB",
+        "BBB"
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:barrier"
+        }
+    },
+    "result": {
+        "count": 1,
+        "id": "minecraft:leather_boots",
+        "components": {
+            "minecraft:item_name": "[{\"fallback\":\"Spring Boots\",\"translate\":\"wasd.boots.spring\", \"italic\":false},{\"fallback\":\" (Locked)\",\"translate\": \"wasd.patron.locked\", \"italic\":false, \"color\":dark_red}]",
+            "minecraft:lore": ["{\"translate\": \"wasd.patron.lore\", \"italic\":false, \"color\":gold}",
+            "{\"translate\": \"wasd.patron.lore2\", \"italic\":false, \"color\":gold}",
+            "{\"translate\": \"wasd.patron.lore3\", \"italic\":false, \"color\":gold}",
+            "{\"text\": \" \"}","{\"fallback\":\"Sneaking charges up your jumps.\",\"translate\": \"wasd.boots.spring.lore\", \"italic\":false, \"color\":blue}"],
+            "minecraft:custom_model_data": 6370019,
+            "minecraft:max_damage": 150,
+            "minecraft:dyed_color": 8487297,
+            "minecraft:attribute_modifiers": {"modifiers": [{"type": "minecraft:generic.safe_fall_distance","id": "6370001","amount": 4,"operation": "add_value","slot": "feet"},
+            {"type": "minecraft:generic.armor","id": "6370004","amount": 1,"operation": "add_value","slot": "feet"}]}
+        }
+    }
+}
+

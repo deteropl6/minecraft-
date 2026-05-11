@@ -1,0 +1,1 @@
+function hcdragon:phase3/ender_breath/ender_breath_loop3 with entity @s

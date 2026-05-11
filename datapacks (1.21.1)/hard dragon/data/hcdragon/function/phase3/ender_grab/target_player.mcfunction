@@ -1,0 +1,3 @@
+execute as @e[type=marker,tag=HCDragon_Ender_grab,distance=..10,sort=nearest] at @s anchored eyes facing entity @p[gamemode=!spectator] eyes positioned ^ ^ ^0.2 rotated as @s positioned ^ ^ ^0.9 facing entity @s eyes facing ^ ^ ^-1 positioned as @s run tp @s ^ ^ ^ ~ ~
+execute as @e[type=marker,tag=HCDragon_Ender_grab,distance=..10,sort=nearest] at @s run tp @s ^ ^ ^0.8
+execute as @s at @e[type=marker,tag=HCDragon_Ender_grab,distance=..10,sort=nearest] rotated as @e[type=marker,tag=HCDragon_Ender_grab,distance=..10,sort=nearest] facing ^ ^ ^-1 run tp @s ^ ^ ^ ~ ~

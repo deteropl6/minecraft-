@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#I#",
+    "#o#",
+    "#I#"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "minecraft:oak_planks"
+      }
+    ],
+    "I": [
+      {
+        "item": "minecraft:iron_block"
+      }
+    ],
+    "o": [
+      {
+        "item": "minecraft:diamond"
+      }
+    ]
+  },
+  "result": {
+    "id": "minecraft:shield"
+  }
+}

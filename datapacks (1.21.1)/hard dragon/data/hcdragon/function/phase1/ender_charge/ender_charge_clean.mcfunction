@@ -1,0 +1,1 @@
+execute as @s at @s run kill @e[type=marker,tag=HCDragon_Ender_charge,tag=state1,distance=..50,sort=nearest,limit=1]

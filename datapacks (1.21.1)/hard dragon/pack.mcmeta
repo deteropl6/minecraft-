@@ -1,0 +1,29 @@
+{
+  "pack": {
+    "pack_format": 48,
+    "description": "Hardcore Dragon by Thevayl",
+    "supported_formats": {
+      "min_inclusive": 48,
+      "max_inclusive": 71
+    }
+  },
+  
+  "overlays": {
+    "entries": [
+      {
+        "formats": {
+          "min_inclusive": 57,
+          "max_inclusive": 61
+        },
+        "directory": "1.21.2-1.21.4"
+      },
+      {
+        "formats": {
+          "min_inclusive": 71,
+          "max_inclusive": 71
+        },
+        "directory": "1.21.5"
+      }
+    ]
+  }
+}

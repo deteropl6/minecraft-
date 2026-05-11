@@ -1,0 +1,5 @@
+# Variables for Health calculation
+scoreboard players set HCDragon_Base_Health_Variable HCDragon_Max_Health 400
+scoreboard players set HCDragon_1_Variable HCDragon_Max_Health 1
+scoreboard players set HCDragon_4_Variable HCDragon_Max_Health 4
+scoreboard players set HCDragon_100_Variable HCDragon_Max_Health 100

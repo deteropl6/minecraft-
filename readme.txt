@@ -27,7 +27,7 @@
 
 
 
-
+Заметки для себя: https://modrinth.com/datapack/hardcore-ender-dragon
 
 
 

@@ -1,0 +1,2 @@
+execute as @s at @s positioned ^ ^ ^0.1 rotated as @s positioned ^ ^ ^1 facing entity @s eyes facing ^ ^ ^ positioned as @s run tp @s ^ ^ ^ ~ ~
+function hcdragon:phase1/ender_charge/ender_charge_end with entity @s

@@ -1,0 +1,1 @@
+execute as @e[type=ender_dragon] run data modify entity @s Air set value 100

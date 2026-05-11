@@ -1,0 +1,31 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wasd_boots",
+    "category": "equipment",
+    "pattern": [
+        "# #",
+        "E E",
+        "E E"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:string"
+        },
+        "E": {
+            "tag": "minecraft:wool"
+        }
+    },
+    "result": {
+        "count": 1,
+        "id": "minecraft:leather_boots",
+        "components": {
+            "minecraft:item_name": "{\"fallback\":\"Sneakers\",\"translate\":\"wasd.boots.sneakers\", \"italic\":false}",
+            "minecraft:lore": ["{\"fallback\":\"While sneaking, you become invisible.\",\"translate\": \"wasd.boots.sneakers.lore\", \"italic\":false, \"color\":blue}"],
+            "minecraft:custom_model_data": 6370015,
+            "minecraft:max_damage": 65,
+            "minecraft:dyed_color": 41727,
+            "minecraft:custom_data": {"wasd.custom_boot":15,"wasd_boot":1}
+        }
+    }
+}
+

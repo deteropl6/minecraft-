@@ -1,0 +1,32 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wasd_boots",
+    "category": "equipment",
+    "pattern": [
+        "# #",
+        "E E",
+        "E E"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:gunpowder"
+        },
+        "E": {
+            "item": "minecraft:tnt"
+        }
+    },
+    "result": {
+        "count": 1,
+        "id": "minecraft:leather_boots",
+        "components": {
+            "minecraft:item_name": "{\"fallback\":\"TNT Boots\",\"translate\":\"wasd.boots.tnt\", \"italic\":false}",
+            "minecraft:lore": ["{\"fallback\":\"Sneak+Jump to explode!\",\"translate\": \"wasd.boots.tnt.lore\", \"italic\":false, \"color\":blue}"],
+            "minecraft:custom_model_data": 6370006,
+            "minecraft:max_damage": 65,
+            "minecraft:dyed_color": 16711680,
+            "minecraft:custom_data": {"wasd.custom_boot":6,"wasd_boot":1},
+            "minecraft:attribute_modifiers": {"modifiers": [{"type": "minecraft:generic.armor","id": "6370001","amount": 1,"operation": "add_value","slot": "feet"}]}
+        }
+    }
+}
+

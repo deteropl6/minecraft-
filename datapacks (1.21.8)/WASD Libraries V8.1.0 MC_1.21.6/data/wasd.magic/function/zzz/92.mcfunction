@@ -1,3 +1,0 @@
-#mc-build WASD content
-scoreboard players reset @s wasd.temp
-summon armor_stand ~ ~-0.5 ~ {Invulnerable:1b,Invisible:1b,Tags:["wasd.lib_entity_tick","wasd.fake_anvil","wasd.ability"],DisabledSlots:4144959,equipment:{head:{id:"minecraft:armor_stand",count:1,components:{"minecraft:item_model":"wasd:abilities/anvil"}}}}

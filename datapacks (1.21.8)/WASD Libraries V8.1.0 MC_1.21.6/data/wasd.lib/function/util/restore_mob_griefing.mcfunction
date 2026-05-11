@@ -1,1 +1,0 @@
-execute if score mobGriefing wasd.gamerule matches 1 run gamerule mobGriefing true

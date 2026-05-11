@@ -1,0 +1,31 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wasd_boots_patron",
+    "category": "equipment",
+    "pattern": [
+        "BBB",
+        "BBB",
+        "BBB"
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:barrier"
+        }
+    },
+    "result": {
+        "count": 1,
+        "id": "minecraft:leather_boots",
+        "components": {
+            "minecraft:item_name": "[{\"fallback\":\"Pickaxe Boots\",\"translate\":\"wasd.boots.pickaxe\", \"italic\":false},{\"fallback\":\" (Locked)\",\"translate\": \"wasd.patron.locked\", \"italic\":false, \"color\":dark_red}]",
+            "minecraft:lore": ["{\"translate\": \"wasd.patron.lore\", \"italic\":false, \"color\":gold}",
+            "{\"translate\": \"wasd.patron.lore2\", \"italic\":false, \"color\":gold}",
+            "{\"translate\": \"wasd.patron.lore3\", \"italic\":false, \"color\":gold}",
+            "{\"text\": \" \"}","{\"fallback\":\"Jump + Sneak to mine the blocks you land on.\",\"translate\": \"wasd.boots.pickaxe.lore\", \"italic\":false, \"color\":blue}"],
+            "minecraft:custom_model_data": 6370022,
+            "minecraft:max_damage": 240,
+            "minecraft:dyed_color": 13167103,
+            "minecraft:attribute_modifiers": {"modifiers": [{"type": "minecraft:generic.armor","id": "6370001","amount": 2,"operation": "add_value","slot": "feet"}]}
+        }
+    }
+}
+

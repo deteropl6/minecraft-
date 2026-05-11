@@ -1,0 +1,27 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather_boots",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": "{\"fallback\":\"Water Boots\",\"translate\":\"wasd.boots.water\", \"italic\":false}",
+                "minecraft:lore": ["{\"fallback\":\"Automatically places water below you when falling from a height.\",\"translate\": \"wasd.boots.water.lore\", \"italic\":false, \"color\":blue}"],
+                "minecraft:custom_model_data": 6370021,
+                "minecraft:max_damage": 65,
+                "minecraft:dyed_color": 11007,
+                "minecraft:custom_data": {"wasd.custom_boot":21,"wasd_boot":1}
+
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather_boots",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": "{\"fallback\":\"Sneakers\",\"translate\":\"wasd.boots.sneakers\", \"italic\":false}",
+                "minecraft:lore": ["{\"fallback\":\"While sneaking, you become invisible.\",\"translate\": \"wasd.boots.sneakers.lore\", \"italic\":false, \"color\":blue}"],
+                "minecraft:custom_model_data": 6370015,
+                "minecraft:max_damage": 65,
+                "minecraft:dyed_color": 41727,
+                "minecraft:custom_data": {"wasd.custom_boot":15,"wasd_boot":1}
+
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

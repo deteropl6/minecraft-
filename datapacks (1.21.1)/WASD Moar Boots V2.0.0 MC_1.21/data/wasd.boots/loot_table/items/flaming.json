@@ -1,0 +1,26 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather_boots",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": "{\"fallback\":\"Flaming Boots\",\"translate\":\"wasd.boots.flaming\",\"italic\":false}",
+                "minecraft:lore": ["{\"fallback\":\"Sprinting leaves a trail of fire.\",\"translate\":\"wasd.boots.flaming.lore\",\"italic\":false,\"color\":\"blue\"}"],
+                "minecraft:custom_model_data": 6370016,
+                "minecraft:max_damage": 65,
+                "minecraft:dyed_color": 16748800,
+                "minecraft:custom_data": {"wasd.custom_boot":16,"wasd_boot":1}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:dragon_head",
+          "functions": [
+            {
+              "function": "minecraft:set_lore",
+              "entity": "this",
+              "lore": [
+                ["",
+                  {
+                    "text":"Obtained after killing the",
+                    "italic":false,
+                    "color":"gray"
+                  }
+                ],
+                ["",
+                  {
+                    "text":"Hardcore Ender Dragon",
+                    "italic":false,
+                    "color":"gray"
+                  }
+                ],
+                ["",
+                  {
+                    "text":"Don't place it down",
+                    "italic":false,
+                    "color":"red",
+                    "bold":true
+                  }
+                ]
+              ],
+              "mode": "insert"
+            },
+            {
+              "function": "minecraft:set_name",
+              "entity": "this",
+              "target": "custom_name",
+              "name": {
+                "text": "Hardcore",
+                "color": "dark_purple",
+                "font": "minecraft:default",
+                "italic": false,
+                "extra": [
+                  {
+                    "text": " Dragon Head",
+                    "color": "yellow",
+                    "italic": false
+                  }
+                ]
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "id": "1723746566217",
+                  "attribute": "minecraft:player.block_interaction_range",
+                  "amount": 2,
+                  "operation": "add_value",
+                  "slot": "head"
+                },
+                {
+                  "id": "1723746566217",
+                  "attribute": "minecraft:player.entity_interaction_range",
+                  "amount": 2,
+                  "operation": "add_value",
+                  "slot": "head"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

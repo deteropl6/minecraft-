@@ -1,0 +1,31 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wasd_boots",
+    "category": "equipment",
+    "pattern": [
+        "# #",
+        "E E"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:wither_rose"
+        },
+        "E": {
+            "item": "minecraft:wither_skeleton_skull"
+        }
+    },
+    "result": {
+        "count": 1,
+        "id": "minecraft:leather_boots",
+        "components": {
+            "minecraft:item_name": "{\"fallback\":\"Wither Rose Boots\",\"translate\":\"wasd.boots.wither\", \"italic\":false}",
+            "minecraft:lore": ["{\"fallback\":\"Sprinting leaves a trail of damaging wither particles.\",\"translate\": \"wasd.boots.wither.lore\", \"italic\":false, \"color\":blue}"],
+            "minecraft:custom_model_data": 6370014,
+            "minecraft:max_damage": 481,
+            "minecraft:dyed_color": 2883584,
+            "minecraft:custom_data": {"wasd.custom_boot":14,"wasd_boot":1},
+            "minecraft:attribute_modifiers": {"modifiers": [{"type": "minecraft:generic.armor","id": "6370001","amount": 2,"operation": "add_value","slot": "feet"}]}
+        }
+    }
+}
+

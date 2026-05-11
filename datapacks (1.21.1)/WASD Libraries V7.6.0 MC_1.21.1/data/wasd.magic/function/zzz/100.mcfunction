@@ -1,0 +1,10 @@
+#mc-build WASD content
+tag @s add wasd.log_stuck
+damage @s 3 minecraft:magic
+effect give @s slowness 5 100 true
+effect give @s[type=player] jump_boost 5 130 true
+effect give @s resistance 5 100 true
+execute align y positioned ~ ~ ~2 run summon item_display ~ ~-2 ~ {Rotation:[180F,20F],item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.log_spike","wasd.main_log_spike"],teleport_duration:10,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1.5f,1.5f,1.5f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:custom_model_data":6370406}}}
+execute align y positioned ~ ~ ~-2 run summon item_display ~ ~-2 ~ {Rotation:[0F,20F],item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.log_spike"],teleport_duration:10,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1.5f,1.5f,1.5f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:custom_model_data":6370406}}}
+execute align y positioned ~2 ~ ~ run summon item_display ~ ~-2 ~ {Rotation:[90F,20F],item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.log_spike"],teleport_duration:10,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1.5f,1.5f,1.5f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:custom_model_data":6370406}}}
+execute align y positioned ~-2 ~ ~ run summon item_display ~ ~-2 ~ {Rotation:[-90F,20F],item_display:"head",brightness:{sky:10,block:15},Tags:["wasd.lib_entity_tick","wasd.ability","wasd.log_spike"],teleport_duration:10,transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1.5f,1.5f,1.5f]},item:{id:"minecraft:armor_stand",count:1,components:{"minecraft:custom_model_data":6370406}}}

@@ -1,0 +1,4 @@
+execute as @s at @s unless entity @e[type=area_effect_cloud,distance=..5] run summon area_effect_cloud ~ ~ ~ {Particle:{type:"dust_color_transition",from_color:[1.000,0.000,0.969],scale:1,to_color:[0.702,0.000,1.000]},ReapplicationDelay:20,Radius:5.5f,RadiusPerTick:-0.01f,Duration:250,potion_contents:{potion:"minecraft:strong_harming"}}
+particle sweep_attack ~ ~1 ~ 1 1 1 1 1 force
+execute as @s at @s if predicate hcdragon:ender_breath_impact_interval if predicate hcdragon:rdm_ender_breath_particle run playsound minecraft:entity.evoker.prepare_attack ambient @a[distance=..100] ~ ~ ~ 2 0.8
+particle witch ~ ~2 ~ 2 2 2 2 30
