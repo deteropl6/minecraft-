@@ -1,0 +1,29 @@
+[
+  {
+    "function": "minecraft:set_components",
+    "components": {
+      "minecraft:attribute_modifiers": {
+        "modifiers": [
+          {
+            "type": "minecraft:generic.armor",
+            "amount": 3,
+            "operation": "add_value",
+            "slot": "chest",
+            "id": "leather_plus:armor_chestplate"
+          },
+          {
+            "type": "minecraft:generic.movement_speed",
+            "amount": 0.02,
+            "operation": "add_multiplied_base",
+            "slot": "chest",
+            "id": "leather_plus:speed_chestplate"
+          }
+        ],
+        "show_in_tooltip": true
+      },
+      "minecraft:custom_data": {
+        "leather_plus": true
+      }
+    }
+  }
+]

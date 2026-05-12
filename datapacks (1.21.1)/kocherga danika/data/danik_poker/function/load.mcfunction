@@ -1,0 +1,1 @@
+tellraw @a [{"text":"[Кочерга Даника] ","color":"gold"},{"text":"Датапак загружен! ","color":"green"},{"text":"/function danik_poker:give","color":"yellow","clickEvent":{"action":"run_command","value":"/function danik_poker:give"},"hoverEvent":{"action":"show_text","contents":"Нажми чтобы получить"}}]

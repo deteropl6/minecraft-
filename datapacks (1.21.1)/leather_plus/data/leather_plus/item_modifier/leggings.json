@@ -1,0 +1,29 @@
+[
+  {
+    "function": "minecraft:set_components",
+    "components": {
+      "minecraft:attribute_modifiers": {
+        "modifiers": [
+          {
+            "type": "minecraft:generic.armor",
+            "amount": 2,
+            "operation": "add_value",
+            "slot": "legs",
+            "id": "leather_plus:armor_leggings"
+          },
+          {
+            "type": "minecraft:generic.movement_speed",
+            "amount": 0.02,
+            "operation": "add_multiplied_base",
+            "slot": "legs",
+            "id": "leather_plus:speed_leggings"
+          }
+        ],
+        "show_in_tooltip": true
+      },
+      "minecraft:custom_data": {
+        "leather_plus": true
+      }
+    }
+  }
+]

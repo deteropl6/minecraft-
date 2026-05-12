@@ -1,0 +1,4 @@
+# Выдаёт Кочергу Даника
+give @s minecraft:stick[minecraft:custom_name='[{"text":"Кочерга Даника","italic":false,"color":"gold","bold":true}]',minecraft:custom_model_data=8901,minecraft:lore=['[{"text":"Огненная кочерга Даника","italic":true,"color":"red"}]','[{"text":"Поджигает врагов при ударе","italic":true,"color":"gray"}]'],minecraft:attribute_modifiers={modifiers:[{type:"minecraft:generic.attack_damage",amount:5.0,operation:"add_value",slot:"mainhand",id:"danik_poker:damage"},{type:"minecraft:generic.attack_speed",amount:-2.4,operation:"add_value",slot:"mainhand",id:"danik_poker:speed"}],show_in_tooltip:true},minecraft:enchantments={levels:{"minecraft:fire_aspect":2}},minecraft:max_damage=250,minecraft:max_stack_size=1,minecraft:custom_data={danik_poker:true}]
+playsound minecraft:item.firecharge.use player @s ~ ~ ~ 1 0.8
+tellraw @s [{"text":"Вы получили ","color":"gray"},{"text":"Кочергу Даника","color":"gold","bold":true},{"text":"!","color":"gray"}]

@@ -1,0 +1,29 @@
+[
+  {
+    "function": "minecraft:set_components",
+    "components": {
+      "minecraft:attribute_modifiers": {
+        "modifiers": [
+          {
+            "type": "minecraft:generic.armor",
+            "amount": 2,
+            "operation": "add_value",
+            "slot": "head",
+            "id": "iron_minus:armor_helmet"
+          },
+          {
+            "type": "minecraft:generic.movement_speed",
+            "amount": -0.0125,
+            "operation": "add_multiplied_base",
+            "slot": "head",
+            "id": "iron_minus:speed_helmet"
+          }
+        ],
+        "show_in_tooltip": true
+      },
+      "minecraft:custom_data": {
+        "iron_minus": true
+      }
+    }
+  }
+]
