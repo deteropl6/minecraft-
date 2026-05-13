@@ -1,0 +1,2 @@
+# Выдать Добрый Колу игроку
+give @s minecraft:potion[custom_data={dobry_cola:true},potion_contents={custom_color:7602176,custom_effects:[{id:"minecraft:speed",duration:600,amplifier:0},{id:"minecraft:jump_boost",duration:600,amplifier:0}]},item_name='{"text":"Добрый Cola","color":"red","bold":true,"italic":false}',lore=['{"text":"Освежающий напиток!","color":"gold","italic":true}','{"text":"Эффект: Скорость I + Прыжок I","color":"gray","italic":true}','{"text":"Побочка: бурление 30 сек 💨","color":"dark_gray","italic":true}'],item_model="dobry_cola:dobry_cola"] 1

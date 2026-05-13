@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:glass_bottle",
+    "minecraft:sugar",
+    "minecraft:cocoa_beans"
+  ],
+  "result": {
+    "id": "minecraft:potion",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "dobry_cola": true
+      },
+      "minecraft:potion_contents": {
+        "custom_color": 7602176,
+        "custom_effects": [
+          {
+            "id": "minecraft:speed",
+            "duration": 600,
+            "amplifier": 0
+          },
+          {
+            "id": "minecraft:jump_boost",
+            "duration": 600,
+            "amplifier": 0
+          }
+        ]
+      },
+      "minecraft:item_name": "{\"text\":\"Добрый Cola\",\"color\":\"red\",\"bold\":true,\"italic\":false}",
+      "minecraft:lore": [
+        "{\"text\":\"Освежающий напиток!\",\"color\":\"gold\",\"italic\":true}",
+        "{\"text\":\"Эффект: Скорость I + Прыжок I\",\"color\":\"gray\",\"italic\":true}",
+        "{\"text\":\"Побочка: бурление 30 сек 💨\",\"color\":\"dark_gray\",\"italic\":true}"
+      ],
+      "minecraft:item_model": "dobry_cola:dobry_cola"
+    }
+  }
+}
