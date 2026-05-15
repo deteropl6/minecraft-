@@ -1,2 +1,0 @@
-# Give custom trident: 900 durability, 10 melee damage, sword attack speed
-give @s minecraft:trident[minecraft:max_damage=900,minecraft:damage=0,minecraft:attribute_modifiers=[{type:"minecraft:generic.attack_damage",amount:9.0,operation:"add_value",slot:"mainhand",id:"minecraft:base_attack_damage"},{type:"minecraft:generic.attack_speed",amount:-2.4,operation:"add_value",slot:"mainhand",id:"minecraft:base_attack_speed"}]]
